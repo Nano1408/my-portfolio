@@ -1,0 +1,55 @@
+import React, { useState, useEffect } from 'react';
+import '@styles/navbar.css'
+import '@fontsource/lilita-one';
+
+const Navbar = () => {
+    const [activeSection, setActiveSection] = useState('Inicio');
+
+    const handleScroll = () => {
+        const sections = ['Inicio', 'Proyectos', 'Sobre mí', 'Proceso', 'Contacto'];
+        let currentSection = 'Inicio';
+
+        const element = document.getElementById('section');
+
+        sections.forEach( section => {
+            if(element){
+                const offset = element.offsetTop - window.scrollY;
+    
+                if(offset <= 50 && offset > -element.offsetHeight){
+                    currentSection = section;
+                }
+            }
+        });
+        setActiveSection(currentSection);
+    }
+
+    useEffect(() => {
+        window.addEventListener('scroll', handleScroll);
+        return () => removeEventListener('scroll', handleScroll);
+    }, []);
+
+    const handleClick = (section) => {
+        setActiveSection(section);
+        document.getElementById(section).scrollIntoView({behavior : 'smooth'})
+    }
+
+  return (
+    <nav className='w-full'>
+        <ul className='flex justify-center'>
+            {['Inicio', 'Proyectos', 'Sobre mí', 'Proceso', 'Contacto'].map((section) => (
+                <li
+                key={section}
+                className={`text-white text-xl rounded-lg px-4 ${
+                activeSection === section ? 'selected' : 'unselected'
+                }`}
+                onClick={() => handleClick(section)}
+                >
+                    {section}
+                </li>
+            ))}
+        </ul>
+    </nav>
+  )
+}
+
+export default Navbar

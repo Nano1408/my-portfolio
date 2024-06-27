@@ -1,0 +1,22 @@
+:root{
+    --primary-color: #272829;
+    --second-color: #484848;
+    --color-btn-icon: #FFA643;
+}
+
+nav {
+    font-family: 'Lilita One', system-ui;
+}
+
+.rounded-lg {
+    border-radius: 0.5rem;
+}
+
+
+.unselected {
+    border: 2px solid transparent;
+}
+
+.selected {
+    border: 2px solid var(--color-btn-icon);
+}
