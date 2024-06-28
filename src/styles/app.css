@@ -1,0 +1,29 @@
+:root{
+  --primary-color: #272829;
+  --second-color: #484848;
+  --color-gray: #E4E4E4;
+  --color-btn-icon: #FFA643;
+  --color-white: #ffffff;
+  --color-black: #000000;
+}
+
+.app-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    min-height: 100vh;
+}
+
+.content-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 900px;
+  padding: 20px;
+  margin-left: 400px;
+}
+
+header, main, footer {
+  width: 100%;
+}

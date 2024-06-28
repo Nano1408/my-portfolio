@@ -10,8 +10,8 @@ import { TiSocialFacebookCircular } from "react-icons/ti";
 
 const Aside = () => {
   return (
-    <aside id='aside' className='w-[400px] flex flex-col items-center bg-[#1B1B1B] py-8 px-5 m-10 rounded-[30px]'>
-        <div>
+    <aside>
+        <div id='aside' className='max-w-[500px] flex flex-col items-center bg-[#1B1B1B] py-8 px-5 m-10 rounded-[30px]'>
             {/* imagenes */}
             <section className='flex flex-col items-center'>
                 {/* icon hithub */}
@@ -77,8 +77,9 @@ const Aside = () => {
                 </a>
             </section>
 
+            {/* boton de trabajemos juntos */}
             <section className='w-full flex justify-center mt-5'>
-                <button className='font-extrabold'>
+                <button className='btn_work font-extrabold'>
                     <span className="span-mother">
                         <span>¡</span>
                         <span>T</span>

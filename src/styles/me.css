@@ -1,0 +1,31 @@
+:root{
+    --primary-color: #272829;
+    --second-color: #484848;
+    --color-gray: #E4E4E4;
+    --color-btn-icon: #FFA643;
+    --color-white: #ffffff;
+    --color-black: #000000;
+}
+
+.btn-cv {
+    border: var(--color-gray) 2px solid;
+    border-radius: 20px;
+    padding: 5px 10px;
+    color: var(--color-btn-icon);
+    font-family: 'Incosolata Variable', monospace;
+    font-size: small;
+}
+
+.title {
+    font-size: 64px;
+    color: var(--color-btn-icon);
+    font-family: 'Lilita One', monospace;
+}
+
+#me > p {
+    font-family: 'Inconsolata Variable', monospace;
+    font-size: 20px;
+    color: var(--color-gray);
+    margin: 30px 0;
+    width: 700px;
+}

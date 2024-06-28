@@ -33,23 +33,23 @@ const Navbar = () => {
         document.getElementById(section).scrollIntoView({behavior : 'smooth'})
     }
 
-  return (
-    <nav className='w-full'>
-        <ul className='flex justify-center'>
+return (
+    <nav className='w-full mt-5 fixed'>
+        <ul className='flex'>
             {['Inicio', 'Proyectos', 'Sobre mí', 'Proceso', 'Contacto'].map((section) => (
-                <li
-                key={section}
-                className={`text-white text-xl rounded-lg px-4 ${
-                activeSection === section ? 'selected' : 'unselected'
-                }`}
-                onClick={() => handleClick(section)}
-                >
-                    {section}
-                </li>
+                    <li
+                    key={section}
+                    className={`text-white text-xl rounded-lg px-4 ${
+                    activeSection === section ? 'selected' : 'unselected'
+                    }`}
+                    onClick={() => handleClick(section)}
+                    >
+                        {section}
+                    </li>
             ))}
         </ul>
     </nav>
-  )
+)
 }
 
 export default Navbar
