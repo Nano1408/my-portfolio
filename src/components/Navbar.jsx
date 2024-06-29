@@ -4,6 +4,9 @@ import '@fontsource/lilita-one';
 
 const Navbar = () => {
     const [activeSection, setActiveSection] = useState('Inicio');
+    const [isScrolled, setIsScrolled] = useState(false);
+    const [isHidden, setIsHidden] = useState(false);
+    let lastScrollTop = 0;
 
     const handleScroll = () => {
         const sections = ['Inicio', 'Proyectos', 'Sobre mí', 'Proceso', 'Contacto'];
@@ -21,6 +24,21 @@ const Navbar = () => {
             }
         });
         setActiveSection(currentSection);
+
+        if (window.scrollY > 50) {
+            setIsScrolled(true);
+        } else {
+            setIsScrolled(false);
+        }
+
+        // Mostrar y ocultar el navbar basado en la dirección del desplazamiento
+        const scrollTop = window.scrollY;
+        if (scrollTop > lastScrollTop) {
+            setIsHidden(true);  // Ocultar cuando el usuario desplaza hacia abajo
+        } else {
+            setIsHidden(false); // Mostrar cuando el usuario desplaza hacia arriba
+        }
+        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
     }
 
     useEffect(() => {
@@ -34,7 +52,7 @@ const Navbar = () => {
     }
 
 return (
-    <nav className='w-full mt-5 fixed'>
+    <nav className={`${isScrolled ? 'nav-scrolled' : ''} ${isHidden ? 'nav-hidden' : ''}`}>
         <ul className='flex'>
             {['Inicio', 'Proyectos', 'Sobre mí', 'Proceso', 'Contacto'].map((section) => (
                     <li
