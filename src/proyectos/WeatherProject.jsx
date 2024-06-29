@@ -1,4 +1,3 @@
-import React from 'react'
 import '@fontsource/lilita-one';
 import '@fontsource-variable/inconsolata';
 import { FaReact } from "react-icons/fa";
@@ -8,7 +7,7 @@ import '@styles/experiencia.css'
 
 const WeatherProject = () => {
   return (
-    <section id="card_container" className="mt-10 flex bg-[#1B1B1B]">
+    <section id="card_container" className="card_weather mt-10 flex bg-[#1B1B1B]">
 
             <div className="card_project">
                 <h3>Weather pronostic</h3>
@@ -53,7 +52,7 @@ const WeatherProject = () => {
                 </div>
             </a>
 
-        </section>
+    </section>
   )
 }
 
