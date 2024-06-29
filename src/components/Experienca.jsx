@@ -3,6 +3,7 @@ import '@fontsource-variable/inconsolata';
 import '@styles/experiencia.css'
 import WeatherProject from '@proyectos/WeatherProject'
 import AlbumMusicProject from '@proyectos/AlbumMusicProject';
+import EagleFitnessProject from '@proyectos/EagleFitnessProject';
 
 const Experienca = () => {
   return (
@@ -26,6 +27,9 @@ const Experienca = () => {
 
         {/* card proyecto 2 (album de musica) */}
         <AlbumMusicProject />
+
+        {/* card proyecto 3 (Eagle fitness sas) */}
+        <EagleFitnessProject />
     </div>
 );
 };
