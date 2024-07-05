@@ -1,11 +1,30 @@
 :root{
+    /* fuentes de texto */
+    --font-incosolata: 'Incosolata Variable', monospace;
+    --font-lilitaOne: 'Lilita One', system-ui;
+    /* colores */
     --primary-color: #272829;
     --second-color: #484848;
     --color-gray: #E4E4E4;
     --color-btn-icon: #FFA643;
     --color-white: #ffffff;
     --color-black: #000000;
-    --color-bg-project: #1B1B1B;
+    --color-gray-medium: #B7B7B7;
+}
+
+/* GENERAL DE PROYECTOS */
+.img_project img {
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.25) 
+    0px 54px 55px, 
+    rgba(0, 0, 0, 0.12) 
+    0px -12px 30px, 
+    rgba(0, 0, 0, 0.12) 
+    0px 4px 6px, 
+    rgba(0, 0, 0, 0.17) 
+    0px 12px 13px, 
+    rgba(0, 0, 0, 0.09) 
+    0px -3px 5px;
 }
 
 /*
@@ -33,8 +52,6 @@
 }
 /* ########################################## */
 
-
-
 /*
         STYLE CARD WEATHER
 ########################################*/
@@ -59,6 +76,41 @@
 .card_eagleFitness .img_project:hover img {
     cursor: pointer;
     transform: scale(3.35) translateX(55px);
+}
+/* ########################################## */
+
+/*
+        STYLE CARD CARRITO DE COMPRAS
+########################################*/
+.card_carrito .img_project {
+    background: linear-gradient(
+            to top, rgb(114, 157, 3) 0%, 
+            rgb(197, 255, 5) 35%, rgb(255, 255, 7) 70%, 
+            rgb(255, 255, 10) 105%, 
+            rgb(255, 255, 12) 140%, 
+            rgb(255, 255, 14) 175%);
+}
+
+.card_carrito .img_project:hover img {
+    transform: scale(3.35) translateX(60px) translateY(20px);
+}
+/* ########################################## */
+
+
+/*
+        STYLE CARD HERMANAS DOMINICANAS
+########################################*/
+.card_hermanas .img_project {
+    background: linear-gradient(
+        to top, rgb(75, 68, 64) 0%, 
+        rgb(130, 118, 111) 35%, 
+        rgb(185, 167, 157) 70%, 
+        rgb(239, 217, 204) 105%, 
+        rgb(255, 255, 251) 140%);
+}
+
+.card_hermanas .img_project:hover img {
+    transform: scale(3.35) translateX(75px) translateY(15px);
 }
 /* ########################################## */
 

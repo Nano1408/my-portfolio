@@ -1,10 +1,15 @@
 :root{
+    /* fuentes de texto */
+    --font-incosolata: 'Incosolata Variable', monospace;
+    --font-lilitaOne: 'Lilita One', system-ui;
+    /* colores */
     --primary-color: #272829;
     --second-color: #484848;
     --color-gray: #E4E4E4;
     --color-btn-icon: #FFA643;
     --color-white: #ffffff;
     --color-black: #000000;
+    --color-gray-medium: #B7B7B7;
 }
 
 nav {

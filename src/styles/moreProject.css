@@ -1,0 +1,31 @@
+.card_hermanas {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.card_hermanas .img_project, .card_adoptionPuppies .img_project {
+    border-radius: 30px 0 0 30px;
+}
+
+.card_posterMovie .img_project {
+    background: radial-gradient(circle at 50% 100%, rgb(140, 255, 255) 5%, rgb(80, 210, 255) 20%, black 70%);
+}
+
+.card_posterMovie .img_project:hover img {
+    cursor: pointer;
+    transform: scale(2.89) translateX(36px) translateY(5px);
+}
+
+.card_adoptionPuppies .img_project {
+    background: linear-gradient(to top, rgb(247, 192, 1) 0%, rgb(255, 255, 2) 35%, rgb(255, 255, 2) 70%, rgb(255, 255, 3) 105%, rgb(255, 255, 4) 140%, rgb(255, 255, 5) 175%);
+}
+
+.card_adoptionPuppies .img_project:hover img {
+    cursor: pointer;
+    transform: scale(4) translateX(56px) translateY(35px);
+}
+
+.card_adoptionPuppies {
+    display: flex;
+    flex-direction: row-reverse;
+}

@@ -3,6 +3,9 @@ import Navbar from "./components/Navbar"
 import Me from "./components/Me"
 import '@styles/app.css';
 import Experienca from "@components/Experienca";
+import Education from "@components/Education";
+import MoreProjects from "@components/MoreProjects";
+import Process from "@components/Process";
 
 function App() {
 
@@ -22,15 +25,20 @@ function App() {
             <Me />
             <Experienca />
           </section>
-          {/* <section id="Proyectos">
-            <Projects />
+
+          <section id="Education">
+            <Education />
           </section>
-          <section id="Sobre mí">
-            <AboutMe />
+           <section id="Proyectos">
+            <MoreProjects />
           </section>
           <section id="Proceso">
             <Process />
           </section>
+          {/*<section id="Sobre mí">
+            <AboutMe />
+          </section>
+          
           <section id="Contacto">
             <Contact />
           </section> */}

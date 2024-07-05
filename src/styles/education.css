@@ -1,0 +1,44 @@
+:root{
+    /* fuentes de texto */
+    --font-incosolata: 'Incosolata Variable', monospace;
+    --font-lilitaOne: 'Lilita One', system-ui;
+    /* colores */
+    --primary-color: #272829;
+    --second-color: #484848;
+    --color-gray: #E4E4E4;
+    --color-btn-icon: #FFA643;
+    --color-white: #ffffff;
+    --color-black: #000000;
+    --color-gray-medium: #B7B7B7;
+}
+
+section {
+    font-family: var(--font-incosolata);
+}
+
+div > h2 {
+    color: var(--color-btn-icon);
+    font-family: var(--font-lilitaOne);
+    font-size: 40px;
+    padding: 60px 0;
+}
+
+#education p:nth-child(1) {
+    font-size: 14px;
+}
+
+#education > p {
+    color: var(--color-white);
+}
+
+#education > div > h4 {
+    color: var(--color-white);
+}
+
+#education div > p {
+    color: var(--color-gray-medium);
+}
+
+#education p:nth-child(3) {
+    color: var(--color-gray-medium);
+}

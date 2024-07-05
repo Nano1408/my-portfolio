@@ -1,0 +1,34 @@
+:root{
+    /* fuentes de texto */
+    --font-incosolata: 'Incosolata Variable', monospace;
+    --font-lilitaOne: 'Lilita One', system-ui;
+    /* colores */
+    --primary-color: #272829;
+    --second-color: #484848;
+    --color-gray: #E4E4E4;
+    --color-btn-icon: #FFA643;
+    --color-white: #ffffff;
+    --color-black: #000000;
+    --color-gray-medium: #B7B7B7;
+}
+
+.container_process {
+    padding: 10px 70px;
+    color: var(--primary-color);
+    border-radius: 15px;
+}
+
+.container_process p {
+    font-family: var(--font-incosolata);
+}
+
+
+.container_process .container_card p {
+    font-size: 13px;
+}
+
+.required > h4 {
+    font-family: var(--font-lilitaOne);
+    font-weight: 800;
+    font-size: 20px;
+}
