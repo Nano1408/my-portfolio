@@ -23,7 +23,7 @@
 }
 
 
-.container_process .container_card p {
+.cards p {
     font-size: 13px;
 }
 
@@ -31,4 +31,18 @@
     font-family: var(--font-lilitaOne);
     font-weight: 800;
     font-size: 20px;
+}
+
+.ux_container_card, .developer_container_card {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    margin-top: 50px;
+}
+.ux_container_card picture > img {
+    margin: 0;
+}
+
+.icon_large {
+    color: var(--second-color);
 }
