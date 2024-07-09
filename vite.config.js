@@ -13,6 +13,7 @@ export default defineConfig({
       '@moreProjects': path.resolve(__dirname, 'src/moreProjects'),
       '@process': path.resolve(__dirname, 'src/process'),
       '@components': path.resolve(__dirname, 'src/components'),
+      '@apis': path.resolve(__dirname, 'src/apis'),
     },
   },
 })

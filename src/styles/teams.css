@@ -1,0 +1,12 @@
+.description {
+    font-family: 'Marko One';
+}
+
+.description p:nth-child(2) {
+    font-size: 14px;
+}
+
+.description p:nth-child(2) {
+    font-size: 12px;
+    color: #4F4F4F;
+}

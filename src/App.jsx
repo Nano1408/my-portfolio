@@ -1,11 +1,15 @@
+import React from 'react'
 import Aside from "@components/Aside"
 import Navbar from "./components/Navbar"
 import Me from "./components/Me"
-import '@styles/app.css';
 import Experienca from "@components/Experienca";
 import Education from "@components/Education";
 import MoreProjects from "@components/MoreProjects";
 import Process from "@components/Process";
+import Teams from "@components/Teams";
+import Review from "@components/Review";
+import Contact from "@components/Contact";
+import '@styles/app.css';
 
 function App() {
 
@@ -29,19 +33,32 @@ function App() {
           <section id="Education">
             <Education />
           </section>
-           <section id="Proyectos">
+
+          <section id="Proyectos">
             <MoreProjects />
           </section>
+
           <section id="Proceso">
             <Process />
           </section>
+
+          <section id="Teams">
+            <Teams />
+          </section>
+
+          <section id="Review">
+            <Review />
+          </section>
+
+          <section id="Contacto">
+            <Contact />
+          </section>
+
           {/*<section id="Sobre mí">
             <AboutMe />
           </section>
           
-          <section id="Contacto">
-            <Contact />
-          </section> */}
+           */}
         </main>
 
         <footer>
