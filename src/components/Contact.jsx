@@ -85,7 +85,8 @@ const Contact = () => {
                     <label>Nombre<sup>*</sup></label>
                     <input 
                         type="text" 
-                        name="user_name" 
+                        name="user_name"
+                        required
                     />
                 </div>
 
@@ -93,7 +94,8 @@ const Contact = () => {
                     <label>Apellido<sup>*</sup></label>
                     <input 
                         type="text" 
-                        name="user_last_name" 
+                        name="user_last_name"
+                        required
                     />
                 </div>
 
@@ -103,7 +105,8 @@ const Contact = () => {
                 <label>Empresa<sup>*</sup></label>
                 <input
                     type="text" 
-                    name="company" 
+                    name="company"
+                    required
                 />
             </div>
 
@@ -111,7 +114,8 @@ const Contact = () => {
                 <label>Correo Electronico<sup>*</sup></label>
                 <input
                     type="email" 
-                    name="user_email" 
+                    name="user_email"
+                    required
                 />
             </div>
 
@@ -119,7 +123,7 @@ const Contact = () => {
                 <select name="code_country" id="code_country" defaultValue="code" className='mr-16 w-full h-[45px]'>
                     <option value="code" disabled>Código país</option>
                     {countries.map(country => (
-                        <option key={country.cca2} value={`${country.idd.root}${country.idd.suffixes}`}>
+                        <option key={country.cca2} value={`${country.idd.root}${country.idd.suffixes}`} required>
                             {country.name.common} ({country.idd.root}{country.idd.suffixes})
                         </option>
                     ))}
@@ -127,7 +131,11 @@ const Contact = () => {
 
                 <div className='flex flex-col w-full mt-4'>
                     <label>Numero telefono<sup>*</sup></label>
-                    <input type="text" name='phone_number'/>
+                    <input 
+                    type="text" 
+                    name='phone_number'
+                    required
+                    />
                 </div>
             </div>
             
