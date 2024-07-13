@@ -7,7 +7,7 @@ const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
 
     const handleScroll = () => {
-        const sections = ['Inicio', 'Proyectos', 'Sobre mí', 'Proceso', 'Contacto'];
+        const sections = ['Inicio', 'Sobre mí', 'Proyectos', 'Proceso', 'Contacto'];
         let currentSection = 'Inicio';
 
         const element = document.getElementById('section');
@@ -44,7 +44,7 @@ const Navbar = () => {
 return (
     <nav className={`${isScrolled ? 'nav-scrolled' : ''}`}>
         <ul className='flex'>
-            {['Inicio', 'Proyectos', 'Sobre mí', 'Proceso', 'Contacto'].map((section) => (
+            {['Inicio', 'Sobre mí', 'Proyectos', 'Proceso', 'Contacto'].map((section) => (
                     <li
                     key={section}
                     className={`text-white text-xl rounded-lg px-4 ${
