@@ -10,7 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@emailjs/browser": "^4.3.3",
+    "@emailjs/browser": "^4.4.1",
     "@fontsource-variable/inconsolata": "^5.0.18",
     "@fontsource/lilita-one": "^5.0.20",
     "@fontsource/marko-one": "^5.0.13",
