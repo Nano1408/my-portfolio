@@ -10,12 +10,13 @@ import Teams from "@components/Teams";
 import Review from "@components/Review";
 import Contact from "@components/Contact";
 import '@styles/app.css';
+// import '@styles/main.css';
 
 function App() {
 
   return (
     <div className="app-container">
-      <div>
+      <div className='aside'>
         <Aside />
       </div>
 
@@ -24,45 +25,43 @@ function App() {
           <Navbar />
         </header>
 
-        <main>
-          <section id="Inicio">
+        <main id='main'>
+
+          <section id="inicio">
             <Me />
-            <Experienca />
           </section>
 
-          <section id="Education">
-            <Education />
-          </section>
+            <section id='experiencia'>
+              <Experienca />
+            </section>
 
-          <section id="Proyectos">
-            <MoreProjects />
-          </section>
+            <section id="education">
+              <Education />
+            </section>
 
-          <section id="Proceso">
-            <Process />
-          </section>
+            
 
-          <section id="Teams">
-            <Teams />
-          </section>
+            <section id="proyectos">
+              <MoreProjects />
+            </section>
 
-          <section id="Review">
-            <Review />
-          </section>
+            <section id="proceso">
+              <Process />
+            </section>
 
-          <section id="Contacto">
-            <Contact />
-          </section>
+            <section id="teams">
+              <Teams />
+            </section>
 
-          {/*<section id="Sobre mí">
-            <AboutMe />
-          </section>
-          
-           */}
+            <section id="review">
+              <Review />
+            </section>
+
+            <section id="contacto">
+              <Contact />
+            </section>
+
         </main>
-
-        <footer>
-        </footer>
       </div>
     </div>
   )
