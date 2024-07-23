@@ -161,3 +161,25 @@ button .span-mother span:nth-child(5) {
 .btn_work .span-mother2 span:nth-child(6) {
     transition: 0.7s;
 }
+
+
+/* ########################### 
+####### MEDIA QUERY  #########
+##############################
+*/
+
+@media screen and (max-width: 1200px) {
+    #aside {
+        display: none;
+    }
+    .resposive_image {
+        border-radius: 100%;
+        width: 70px;
+        height: auto;
+        margin: -20px 10px 0 0;
+    }
+    #profetion > h3 {
+        font-size: 3em;
+    }
+}
+

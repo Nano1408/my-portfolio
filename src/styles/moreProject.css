@@ -29,3 +29,15 @@
     display: flex;
     flex-direction: row-reverse;
 }
+
+/* ########################### 
+####### MEDIA QUERY  #########
+##############################
+*/
+
+@media screen and (max-width: 1200px) {
+    #proyectos div > div {
+        width: 100%;
+        justify-content: center;
+    }
+}

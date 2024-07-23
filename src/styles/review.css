@@ -24,4 +24,15 @@
 .talk button:active {
     transform: translateY(2px) translateX(1px);
     box-shadow: 0 0 0 0 black;
-};
+}
+
+/* ########################### 
+####### MEDIA QUERY  #########
+##############################
+*/
+
+@media screen and (max-width: 1200px) {
+    .review_section {
+        width: 100% !important;
+    }
+}
