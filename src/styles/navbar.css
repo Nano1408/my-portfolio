@@ -160,8 +160,9 @@ nav .container_ul_nav > li{
         left: 0;
         top: 0;
         height: 100%;
-        transition: background-color 0.3s ease-in-out;
         transform: translateX(-100%);
+        transition: background-color 0.3s ease-in-out;
+        transition: 0.3s ease-in-out;
     }
 
     .nav-scrolled {
