@@ -19,7 +19,7 @@ const AlbumMusicProject = () => {
                     desde la aplicación.
                 </p>
                 <hr />
-                <div className="flex mt-5">
+                <div className="btn_icon_project flex mt-5">
                     <FaReact className="text-[#05A5D1] text-3xl mr-4"/>
                     <RiTailwindCssFill className="text-[#05A5D1] text-3xl mr-4"/>
                     <img className='mr-4' src="/icon_vite.png" alt="icon_vite" />
@@ -46,7 +46,7 @@ const AlbumMusicProject = () => {
                 <div>
                     <picture>
                         <img
-                        src="/img_project_album.png" 
+                        src="/img_project_album.jpg" 
                         alt="img_project_weather" 
                         />
                     </picture>
