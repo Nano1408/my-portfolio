@@ -31,6 +31,7 @@ nav {
 
 /* styles scroll */
 .nav-scrolled {
+    z-index: -1;
     top: 0;
     border-radius: 30px;
     background-color: var(--second-color);
