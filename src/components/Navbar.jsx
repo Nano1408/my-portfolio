@@ -70,15 +70,12 @@ const Navbar = () => {
     };
 
     const navRef = useRef(null);
+    const hamburgerRef = useRef(null);
 
     const handleClickOutside = useCallback((event) => {
-        if (
-            navRef.current &&
-            !navRef.current.contains(event.target) &&
-            !hamburgerRef.current.contains(event.target)
-            ) {
+        if (navRef.current && !navRef.current.contains(event.target) && !event.target.closest('.toggle')) {
             setMenuOpen(false);
-            }
+        }
     }, []);
 
     useEffect(() => {
@@ -86,12 +83,13 @@ const Navbar = () => {
         return () => {
             document.removeEventListener('mousedown', handleClickOutside);
         };
-    }, []);
+    }, [handleClickOutside]);
 
 
 return (
     <>
-        <RxHamburgerMenu 
+        <RxHamburgerMenu
+        // ref={hamburgerRef}
         className={`toggle ${menuOpen ? 'open' : ''}`} 
         onClick={toggleMenu}
         />
