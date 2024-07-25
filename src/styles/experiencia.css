@@ -12,6 +12,35 @@
     --color-gray-medium: #B7B7B7;
 }
 
+/* ########################### 
+####### MEDIA QUERY  #########
+##############################
+*/
+@media screen and (max-width: 800px) {
+    #card_container {
+        flex-direction: column-reverse;
+        max-width: 600px;
+        margin: 0 auto;
+        margin-bottom: 20px;
+    }
+
+    .img_project {
+        background: none !important;
+        padding: 0 !important;
+        border-radius: 30px 30px 0 0 !important;
+    }
+
+    .img_project > div > picture > img {
+        width: 100%;
+        border-radius: 0;
+    }
+
+    .btn_icon_project {
+        justify-content: center;
+    }
+
+}
+
 /* GENERAL DE PROYECTOS */
 .img_project img {
     border-radius: 10px;
