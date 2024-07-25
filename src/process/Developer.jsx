@@ -3,8 +3,8 @@ import { BiCodeBlock } from "react-icons/bi";
 
 const Developer = () => {
   return (
-    <div className="cards developer_container_card flex justify-between mt-[30px]">
-        <div className="w-[400px]">
+    <div className="cards developer_container_card flex justify-between mt-[50px]">
+        <div className="content_subtitle w-[400px]">
             <div className='required flex mb-4'>
                 <h4>Desarrollo & Ejecución:</h4>
                 <span>

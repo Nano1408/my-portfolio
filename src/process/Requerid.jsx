@@ -4,7 +4,7 @@ import { LiaPagerSolid } from "react-icons/lia";
 const Requerid = () => {
   return (
     <div className="cards requerid_container_card flex justify-between">
-        <div className="w-[400px]">
+        <div className="content_subtitle w-[400px]">
             <div className='required flex mb-4'>
                 <h4>Requerimientos:</h4>
                 <span>

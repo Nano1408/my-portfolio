@@ -4,7 +4,7 @@ import { LuMonitorSmartphone } from "react-icons/lu";
 const Figma = () => {
   return (
     <div className="cards figma_container_card flex justify-between mt-[50px]">
-        <div className="w-[400px]">
+        <div className="content_subtitle w-[400px]">
             <div className='required flex mb-4'>
                 <h4>Diseño Figma:</h4>
                 <span>

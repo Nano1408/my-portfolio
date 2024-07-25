@@ -4,7 +4,7 @@ import { RiPagesFill } from "react-icons/ri";
 const Ux = () => {
   return (
     <div className="cards ux_container_card flex">
-        <div className="w-[400px]">
+        <div className="content_subtitle w-[400px]">
             <div className='required flex mb-4'>
                 <h4>Estructura UX:</h4>
                 <span>
