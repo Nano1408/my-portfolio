@@ -22,7 +22,7 @@ const EagleFitnessProject = () => {
                     detallada sobre todos los servicios ofrecidos.
                 </p>
                 <hr />
-                <div className="flex mt-5">
+                <div className="btn_icon_project flex mt-5">
                 <FaWordpress className="text-[#05A5D1] text-3xl mr-4"/>
                     <FaHtml5 className="text-[#E44D26] text-3xl mr-4"/>
                     <SiHostinger className="text-[#6745C8] text-3xl mr-4"/>
@@ -43,7 +43,7 @@ const EagleFitnessProject = () => {
                 <div>
                     <picture>
                         <img
-                        src="/img_eagleFitness.png" 
+                        src="/img_eagleFitness.jpg" 
                         alt="img_eagleFitness" 
                         />
                     </picture>
