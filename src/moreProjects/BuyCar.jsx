@@ -42,7 +42,7 @@ const BuyCar = () => {
         <div>
             <picture>
                 <img
-                src="/img_project_carrito.png" 
+                src="/img_project_carrito.jpg" 
                 alt="img_project_weather" 
                 />
             </picture>

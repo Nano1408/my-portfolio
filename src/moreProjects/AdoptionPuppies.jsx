@@ -41,7 +41,7 @@ const AdoptionPuppies = () => {
         <div>
             <picture>
                 <img
-                src="/img_project_perritos.png" 
+                src="/img_project_perritos.jpg" 
                 alt="img_project_weather" 
                 />
             </picture>

@@ -42,7 +42,7 @@ const HermanasDominicana = () => {
         <div>
             <picture>
                 <img
-                src="/img_project_hermanas.png" 
+                src="/img_project_hermanas.jpg" 
                 alt="img_project_weather" 
                 />
             </picture>

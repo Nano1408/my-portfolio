@@ -41,7 +41,7 @@ const PosterMovie = () => {
         <div>
             <picture>
                 <img
-                src="/img_project_posterMovie.png" 
+                src="/img_project_posterMovie.jpg" 
                 alt="img_project_weather" 
                 />
             </picture>
