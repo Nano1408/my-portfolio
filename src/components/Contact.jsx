@@ -100,7 +100,7 @@ const Contact = () => {
 
         <form ref={form} onSubmit={sendEmail} className='mt-8 w-[670px]'>
 
-            <div className='flex w-full'>
+            <div className='first_last_name flex w-full'>
                 <div className='wave-group wave-group1 w-full mr-8'>
                     <input
                         className='input'
