@@ -144,7 +144,7 @@ nav .container_ul_nav > li{
 @media screen and (max-width: 800px) {
     .toggle {
         z-index: 6;
-        position: absolute;
+        position: fixed;
         left: 0;
         display: block;
         color: var(--color-white);
