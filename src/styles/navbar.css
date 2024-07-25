@@ -31,7 +31,6 @@ nav {
 
 /* styles scroll */
 .nav-scrolled {
-    z-index: -1;
     top: 0;
     border-radius: 30px;
     background-color: var(--second-color);
@@ -162,6 +161,10 @@ nav .container_ul_nav > li{
         top: 0;
         height: 100%;
         transition: background-color 0.3s ease-in-out;
+        transform: translateX(-100%);
+    }
+
+    .nav-scrolled {
         transform: translateX(-100%);
     }
 
