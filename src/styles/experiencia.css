@@ -41,6 +41,17 @@
 
 }
 
+@media screen and (max-width: 700px) {
+    #card_container {
+        max-width: 500px;
+    }
+}
+
+/* ########################### 
+####### STYLES GENERAL #########
+##############################
+*/
+
 /* GENERAL DE PROYECTOS */
 .img_project img {
     border-radius: 10px;

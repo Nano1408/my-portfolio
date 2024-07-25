@@ -25,20 +25,53 @@ div > h2 {
 
 #education p:nth-child(1) {
     font-size: 14px;
+    color: var(--color-white);
 }
 
 #education > p {
     color: var(--color-white);
+    width: 50%;
+    padding: 0 20px 0 40px;
 }
 
-#education > div > h4 {
+#education > div h4 {
     color: var(--color-white);
 }
 
-#education div > p {
+#education div p {
     color: var(--color-gray-medium);
 }
 
 #education p:nth-child(3) {
     color: var(--color-gray-medium);
+}
+
+.first_date_profile {
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+}
+
+@media screen and (max-width: 700px) {
+    #education {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .first_date_profile {
+        margin-bottom: 40px;
+        width: 100%;
+        justify-content: space-evenly;
+    }
+
+    .first_date_profile p {
+        padding-right: 5px;
+    }
+
+    #education > p {
+        width: 100%;
+        padding: 0 50px;
+    }
 }

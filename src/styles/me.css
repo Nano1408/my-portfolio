@@ -96,3 +96,25 @@
         margin-top: 0px !important;
     }
 }
+
+@media screen and (max-width: 700px) {
+    .title {
+        font-size: 50px;
+    }
+
+    .descritpion {
+        padding: 0;
+    }
+
+    .container_cv_mail {
+        flex-direction: column;
+    }
+    .container_cv_mail .btn-cv{
+        width: 300px;
+        margin: 0 auto !important;
+    }
+    .container_cv_mail button:nth-child(1){
+        margin: 0;
+        margin-bottom: 15px !important;
+    }
+}

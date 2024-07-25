@@ -46,3 +46,31 @@
 .icon_large {
     color: var(--second-color);
 }
+
+/* ########################### 
+####### MEDIA QUERY  #########
+##############################
+*/
+@media screen and (max-width: 700px) {
+    .cards {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .content_subtitle {
+        width: 100% !important;
+    }
+
+    .content_subtitle p {
+        max-width: 450px;
+        margin: 0 auto;
+    }
+
+    .icon_large {
+        display: none;
+    }
+
+    .required {
+        justify-content: center;
+    }
+}
