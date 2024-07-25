@@ -20,7 +20,7 @@ nav {
     position: relative;
     font-family: 'Lilita One', system-ui;
     position: fixed;
-    z-index: 99;
+    z-index: 2;
     width: 100%;
     top: 30px;
     padding: 10px 0 10px 20px;
@@ -143,6 +143,9 @@ nav .container_ul_nav > li{
 
 @media screen and (max-width: 800px) {
     .toggle {
+        z-index: 6;
+        position: absolute;
+        left: 0;
         display: block;
         color: var(--color-white);
         width: 50px;
@@ -152,20 +155,26 @@ nav .container_ul_nav > li{
     }
 
     nav {
-        transition: background-color 0.3s ease-in-out;
         padding: 0;
         width: 90%;
         left: 0;
         top: 0;
         height: 100%;
+        transition: background-color 0.3s ease-in-out;
+        transform: translateX(-100%);
     }
 
     nav.menu-open {
         background-color: var(--second-color);
+        transform: translateX(0);
     }
 
     .toggle.open {
         color: var(--color-btn-icon);
+    }
+
+    nav .container_ul_nav {
+        display: none; /* Oculto por defecto */
     }
 
     nav .container_ul_nav {
@@ -206,13 +215,6 @@ nav .container_ul_nav > li{
         background: none;
     }
 
-    /* .subMenu {
-        position: relative;
-        margin-left: 0;
-        padding: 0;
-        display: block;
-    } */
-
     nav .menu {
         display: block;
     }
@@ -227,5 +229,9 @@ nav .container_ul_nav > li{
         position:initial; 
         margin-left: 0;
         padding: 0; 
+    }
+
+    nav.menu-open .container_ul_nav {
+        display: flex; /* Mostrar el menú sólo cuando está abierto */
     }
 }
