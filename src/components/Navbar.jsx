@@ -96,7 +96,7 @@ return (
                 </div>
                 <ul className={`subMenu rounded-none `}>
                     <li className={activeSection === 'experiencia' ? 'selected' : 'unselected'} onClick={() => handleClick('experiencia')}>Experiencia</li>
-                    <li className={activeSection === 'education' ? 'selected' : 'unselected'} onClick={() => handleClick('education')}>Educación</li>
+                    <li className={activeSection === 'educations' ? 'selected' : 'unselected'} onClick={() => handleClick('educations')}>Educación</li>
                     <li className={activeSection === 'teams' ? 'selected' : 'unselected'} onClick={() => handleClick('teams')}>Equipo</li>
                     <li className={activeSection === 'review' ? 'selected' : 'unselected'} onClick={() => handleClick('review')}>En cuanto...</li>
                 </ul>
