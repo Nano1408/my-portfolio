@@ -6,7 +6,7 @@ const Teams = () => {
     <section>
       <h2 className='text-[40px] py-6'>Mi equipo de desarrollo</h2>
 
-      <div className='inline-grid grid-cols-2 gap-8'>
+      <div className='conatainer_teams inline-grid grid-cols-2 gap-8'>
         <div className='bg-white w-[330px] h-[400px]'>
             <picture className="flex justify-center pt-4">
                 <img 
