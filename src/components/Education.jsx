@@ -9,10 +9,12 @@ const Education = () => {
         {/* section software Enginner */}
         <hr className='mb-11'/>
       <section id='education' className='flex justify-between'>
-        <p>En 2021 - Actualmente</p>
-        <div>
-            <h4>Ingeniería De Software</h4>
-            <p>Corporación U. Iberoamericana</p>
+        <div className='first_date_profile'>
+          <p>En 2021 - Actualmente</p>
+          <div>
+              <h4>Ingeniería De Software</h4>
+              <p>Corporación U. Iberoamericana</p>
+          </div>
         </div>
         <p className='text-[15px] w-[300px]'>Soy estudiante de Ingeniería de Software en quinto semestre, 
             con experiencia en desarrollo web, bases de datos y programación. 
@@ -24,10 +26,12 @@ const Education = () => {
       {/* section developer frontend */}
       <hr className='mb-11'/>
       <section id='education' className='flex justify-between'>
-        <p>Jun 2022 - Dic 2022</p>
-        <div>
+        <div className='first_date_profile'>
+          <p>Jun 2022 - Dic 2022</p>
+          <div>
             <h4>Desarrollador Frontend</h4>
             <p>Politécnico Andino</p>
+          </div>
         </div>
         <p className='text-[15px] w-[300px]'>
             Completé un diplomado intensivo en desarrollo web, 
@@ -40,10 +44,12 @@ const Education = () => {
       {/* section developer ReactJS */}
       <hr className='mb-11'/>
       <section id='education' className='flex justify-between'>
-        <p>Ene 2021 - May 2022</p>
-        <div>
-            <h4>Desarrollador ReactJS</h4>
-            <p>Instituto T. Metropolitano</p>
+        <div className='first_date_profile'>
+          <p>Ene 2021 - May 2022</p>
+          <div>
+              <h4>Desarrollador ReactJS</h4>
+              <p>Instituto T. Metropolitano</p>
+          </div>
         </div>
         <p className='text-[15px] w-[300px]'>
             Completé un diplomado intensivo en ReactJS, donde profundicé 
@@ -57,10 +63,12 @@ const Education = () => {
       {/* section Redes de Datos */}
       <hr className='mb-11'/>
       <section id='education' className='flex justify-between'>
-        <p>Ene 2018 - Ago 2020</p>
-        <div>
+        <div className='first_date_profile'>
+          <p>Ene 2018 - Ago 2020</p>
+          <div>
             <h4>Teg. Redes De Datos</h4>
             <p>SENA</p>
+          </div>
         </div>
         <p className='text-[15px] w-[300px]'>
             Completé una tecnología en Gestión de Redes de Datos, enfocada 
