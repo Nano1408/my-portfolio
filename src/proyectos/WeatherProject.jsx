@@ -2,7 +2,6 @@ import '@fontsource/lilita-one';
 import '@fontsource-variable/inconsolata';
 import { FaReact } from "react-icons/fa";
 import { RiTailwindCssFill } from "react-icons/ri";
-// import { IoLogoFirebase } from "react-icons/io5";
 import '@styles/experiencia.css'
 
 const WeatherProject = () => {
@@ -18,7 +17,7 @@ const WeatherProject = () => {
                     proporcionando datos importantes de manera clara y accesible.
                 </p>
                 <hr />
-                <div className="flex mt-5">
+                <div className="btn_icon_project flex mt-5">
                     <FaReact className="text-[#05A5D1] text-3xl mr-4"/>
                     <RiTailwindCssFill className="text-[#05A5D1] text-3xl mr-4"/>
                     <img className='mr-4' src="/icon_vite.png" alt="icon_vite" />
@@ -45,7 +44,7 @@ const WeatherProject = () => {
                 <div>
                     <picture>
                         <img
-                        src="/img_project_weather.png" 
+                        src="/img_project_weather.jpg" 
                         alt="img_project_weather" 
                         />
                     </picture>
