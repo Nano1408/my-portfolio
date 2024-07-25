@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import '@styles/navbar.css'
 import '@fontsource/lilita-one';
 import { IoIosArrowDropdownCircle } from "react-icons/io";
@@ -71,11 +71,15 @@ const Navbar = () => {
 
     const navRef = useRef(null);
 
-    const handleClickOutside = (event) => {
-        if (navRef.current && !navRef.current.contains(event.target)) {
+    const handleClickOutside = useCallback((event) => {
+        if (
+            navRef.current &&
+            !navRef.current.contains(event.target) &&
+            !hamburgerRef.current.contains(event.target)
+            ) {
             setMenuOpen(false);
-        }
-    };
+            }
+    }, []);
 
     useEffect(() => {
         document.addEventListener('mousedown', handleClickOutside);
@@ -86,8 +90,12 @@ const Navbar = () => {
 
 
 return (
-    <nav ref={navRef} className={`${isScrolled ? 'nav-scrolled' : ''} ${menuOpen ? 'menu-open' : ''}`}>
-        <RxHamburgerMenu className={`toggle ${menuOpen ? 'open' : ''}`} onClick={toggleMenu}/>
+    <>
+        <RxHamburgerMenu 
+        className={`toggle ${menuOpen ? 'open' : ''}`} 
+        onClick={toggleMenu}
+        />
+        <nav ref={navRef} className={`${isScrolled ? 'nav-scrolled' : ''} ${menuOpen ? 'menu-open' : ''}`}>
         <ul className={`container_ul_nav ${menuOpen ? 'open' : ''}`}>
             <li className={activeSection === 'inicio' ? 'selected' : 'unselected'} onClick={() => handleClick('inicio')}>Inicio</li>
             <li className="menu">
@@ -106,6 +114,8 @@ return (
             <li className={activeSection === 'contacto' ? 'selected' : 'unselected'} onClick={() => handleClick('contacto')}>Contacto</li>
         </ul>
     </nav>
+    </>
+    
 )
 }
 
