@@ -75,3 +75,23 @@ div > h2 {
         padding: 0 50px;
     }
 }
+
+@media screen and (max-width: 600px) {
+    div > h2 {
+        font-size: 50px;
+    }
+
+    #education p:nth-child(1), #education > div h4{
+        font-size: 18px;
+    }
+
+    #education > p {
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    div > h2 {
+        font-size: 40px;
+    }
+}

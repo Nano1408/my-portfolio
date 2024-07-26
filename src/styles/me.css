@@ -109,12 +109,50 @@
     .container_cv_mail {
         flex-direction: column;
     }
-    .container_cv_mail .btn-cv{
-        width: 300px;
-        margin: 0 auto !important;
-    }
+
     .container_cv_mail button:nth-child(1){
         margin: 0;
         margin-bottom: 15px !important;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .descritpion {
+        font-size: 25px !important;
+        width: 100% !important;
+    }
+
+    .title {
+        font-size: 60px;
+    }
+
+    .icon {
+        width: 50px;
+    }
+
+    .container_icon {
+        margin-left: 100px;
+    }
+
+    .btn-cv {
+        font-size: 18px;
+        max-width: 400px;
+        margin: 0 auto !important;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .title {
+        font-size: 40px;
+    }
+    .icon {
+        width: 30px;
+    }
+    .container_icon {
+        margin-left: 120px;
+    }
+    .descritpion {
+        font-size: 20px !important;
+        width: 100% !important;
     }
 }

@@ -36,3 +36,21 @@
         width: 100% !important;
     }
 }
+
+@media screen and (max-width: 600px) {
+    #review h2 {
+        font-size: 50px;
+    }
+
+    #review p {
+        font-size: 18px;
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    #review h2 {
+        font-size: 40px;
+    }
+}

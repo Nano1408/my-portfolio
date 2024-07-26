@@ -22,28 +22,56 @@
         max-width: 600px;
         margin: 0 auto;
         margin-bottom: 20px;
-    }
+}
 
-    .img_project {
-        background: none !important;
-        padding: 0 !important;
-        border-radius: 30px 30px 0 0 !important;
-    }
+.img_project {
+    background: none !important;
+    padding: 0 !important;
+    border-radius: 30px 30px 0 0 !important;
+}
 
-    .img_project > div > picture > img {
-        width: 100%;
-        border-radius: 0;
-    }
+.img_project > div > picture > img {
+    width: 100%;
+    border-radius: 0;
+}
 
-    .btn_icon_project {
-        justify-content: center;
-    }
+.btn_icon_project {
+    justify-content: center;
+}
 
 }
 
 @media screen and (max-width: 700px) {
     #card_container {
         max-width: 500px;
+    }
+}
+
+
+@media screen and (max-width: 600px) {
+    #container_context h2 {
+        font-size: 50px !important;
+    }
+    
+    #container_context p{
+        font-size: 20px;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+}
+
+
+@media screen and (max-width: 400px) {
+    #container_context h2 {
+        font-size: 40px !important;
+    }
+    #container_context p{
+        font-size: 16px;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+    .card_project h3 {
+        font-size: 30px !important;
     }
 }
 

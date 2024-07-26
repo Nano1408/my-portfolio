@@ -1,4 +1,6 @@
 textarea {
+    color: var(--color-btn-icon) !important;
+    font-size: 18px !important;
     height: 200px;
     border-radius: 20px;
     padding: 10px 5px 5px 20px !important;
@@ -66,7 +68,7 @@ textarea:focus {
   }
   
   .wave-group .input {
-    font-size: 16px;
+    font-size: 18px;
     padding: 10px 10px 10px 5px;
     display: block;
     width: 100%;
@@ -149,4 +151,30 @@ textarea:focus {
   .first_last_name {
     flex-direction: column;
   }
+}
+
+@media screen and (max-width: 600px) {
+  #contacto h2 {
+    font-size: 50px;
+  }
+
+  .wave-group .label {
+    font-size: 22px;
+  }
+
+.wave-group1:nth-child(2), .wave-group1:nth-child(3), .wave-group1:nth-child(4) {
+  margin-top: 50px;
+}
+
+textarea::placeholder {
+  font-size: 20px;
+}
+
+}
+
+@media screen and (max-width: 400px) {
+  #contacto h2 {
+    font-size: 40px;
+  }
+
 }
