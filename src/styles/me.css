@@ -108,10 +108,20 @@
 
     .container_cv_mail {
         flex-direction: column;
+        align-items: center;
     }
 
     .container_cv_mail button:nth-child(1){
         margin: 0;
+        margin-bottom: 15px !important;
+    }
+
+    .btn-cv {
+        width: 400px;
+        margin: 0 !important;
+    }
+
+    .btn-cv:nth-child(1) {
         margin-bottom: 15px !important;
     }
 }
@@ -154,5 +164,10 @@
     .descritpion {
         font-size: 20px !important;
         width: 100% !important;
+    }
+
+    .btn-cv {
+        max-width: 350px;
+        margin: 0 !important;
     }
 }

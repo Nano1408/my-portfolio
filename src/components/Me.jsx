@@ -3,8 +3,19 @@ import "@styles/me.css";
 import "@fontsource/lilita-one";
 import "@fontsource-variable/inconsolata";
 import Social from "../social/Social";
+import { FaRegCopy } from "react-icons/fa";
 
 const Me = () => {
+
+    const email = "fernandoperez.99a@gmail.com";
+  
+    const copyToClipboard = () => {
+      navigator.clipboard.writeText(email).then(() => {
+        alert("¡Correo copiado al portapapeles!");
+      });
+    };
+
+
   return (
     <div className="container_me w-[800px] mt-40">
       <section id="me">
@@ -31,10 +42,21 @@ const Me = () => {
 
       {/* botones para el CV */}
       <section className="container_cv_mail w-full flex">
-        <button className="btn-cv mr-12 px-8">
-          fernandoperez.99a@gmail.com
-        </button>
-        <button className="btn-cv px-12">Mira mi CV</button>
+        <a
+          href={`mailto:${email}`}
+          className="btn-cv mr-4 px-8 flex justify-center"
+          rel="noopener noreferrer"
+        >
+          <FaRegCopy
+          className="icon-copy cursor-pointer text-xl mr-3"
+          onClick={copyToClipboard}
+          />
+          {email}
+        </a>
+        
+        <a href="https://drive.google.com/file/d/1TdiIZgvZEpyPTd7g8SiXO5wL-jopPucg/view?usp=sharing" rel="noopener noreferrer" target="blank_">
+          <button className="btn-cv px-12">Mira mi CV</button>
+        </a>
       </section>
     </div>
   );
