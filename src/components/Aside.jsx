@@ -10,6 +10,12 @@ import { TiSocialFacebookCircular } from "react-icons/ti";
 import Social from '../social/Social';
 
 const Aside = () => {
+    const phoneNumber = "573245735992";
+    const message = "Hola Fernando, como estas? soy...";
+
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappURL = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodedMessage}`;
+
   return (
     <aside>
         <div id='aside' className='max-w-[500px] flex flex-col items-center bg-[#1B1B1B] py-8 px-5 m-10 rounded-[30px]'>
@@ -44,52 +50,55 @@ const Aside = () => {
 
             {/* boton de trabajemos juntos */}
             <section className='w-full flex justify-center mt-5'>
-                <button className='btn_work font-extrabold'>
-                    <span className="span-mother">
-                        <span>¡</span>
-                        <span>T</span>
-                        <span>r</span>
-                        <span>a</span>
-                        <span>b</span>
-                        <span>a</span>
-                        <span>j</span>
-                        <span>e</span>
-                        <span>m</span>
-                        <span>o</span>
-                        <span>s</span>
-                        <span></span>
-                        <span className='pr-1'> </span>
-                        <span>j</span>
-                        <span>u</span>
-                        <span>n</span>
-                        <span>t</span>
-                        <span>o</span>
-                        <span>s</span>
-                        <span>¡</span>
-                    </span>
-                    <span className="span-mother2">
-                    <span>¡</span>
-                        <span>T</span>
-                        <span>r</span>
-                        <span>a</span>
-                        <span>b</span>
-                        <span>a</span>
-                        <span>j</span>
-                        <span>e</span>
-                        <span>m</span>
-                        <span>o</span>
-                        <span>s</span>
-                        <span></span>
-                        <span className='pr-1'></span>
-                        <span>j</span>
-                        <span>u</span>
-                        <span>n</span>
-                        <span>t</span>
-                        <span>o</span>
-                        <span>s</span>
-                        <span>¡</span>
-                    </span>
-                </button>
+                <a href={whatsappURL} target='blank_'>
+                    <button className='btn_work font-extrabold'>
+                            <span className="span-mother">
+                                <span>¡</span>
+                                <span>T</span>
+                                <span>r</span>
+                                <span>a</span>
+                                <span>b</span>
+                                <span>a</span>
+                                <span>j</span>
+                                <span>e</span>
+                                <span>m</span>
+                                <span>o</span>
+                                <span>s</span>
+                                <span></span>
+                                <span className='pr-1'> </span>
+                                <span>j</span>
+                                <span>u</span>
+                                <span>n</span>
+                                <span>t</span>
+                                <span>o</span>
+                                <span>s</span>
+                                <span>¡</span>
+                            </span>
+                            <span className="span-mother2">
+                            <span>¡</span>
+                                <span>T</span>
+                                <span>r</span>
+                                <span>a</span>
+                                <span>b</span>
+                                <span>a</span>
+                                <span>j</span>
+                                <span>e</span>
+                                <span>m</span>
+                                <span>o</span>
+                                <span>s</span>
+                                <span></span>
+                                <span className='pr-1'></span>
+                                <span>j</span>
+                                <span>u</span>
+                                <span>n</span>
+                                <span>t</span>
+                                <span>o</span>
+                                <span>s</span>
+                                <span>¡</span>
+                            </span>
+                    </button>
+                </a>
+                    
             </section>
         </div>
         

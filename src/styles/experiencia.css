@@ -204,7 +204,8 @@ section > h2 {
 #container_context > p {
     font-family: 'Incosolata Variable', monospace;
     color: var(--color-gray);
-    margin: 20px;
+    margin: 20px 0;
+    max-width: 800px;
 }
 
 #card_container p {

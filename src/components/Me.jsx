@@ -4,6 +4,7 @@ import "@fontsource/lilita-one";
 import "@fontsource-variable/inconsolata";
 import Social from "../social/Social";
 import { FaRegCopy } from "react-icons/fa";
+import Swal from 'sweetalert2'
 
 const Me = () => {
 
@@ -11,7 +12,21 @@ const Me = () => {
   
     const copyToClipboard = () => {
       navigator.clipboard.writeText(email).then(() => {
-        alert("¡Correo copiado al portapapeles!");
+        const Toast = Swal.mixin({
+          toast: true,
+          position: "top-end",
+          showConfirmButton: false,
+          timer: 2000,
+          timerProgressBar: true,
+          didOpen: (toast) => {
+            toast.onmouseenter = Swal.stopTimer;
+            toast.onmouseleave = Swal.resumeTimer;
+          }
+        });
+        Toast.fire({
+          icon: "success",
+          title: "Copiado en el portapapeles"
+        });
       });
     };
 
