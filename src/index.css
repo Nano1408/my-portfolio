@@ -5,9 +5,3 @@
 :root {
     background: #272829;
 }
-
-@media  (max-width:1100px) {
-    .header {
-        margin-left: 2rem;
-    }
-}

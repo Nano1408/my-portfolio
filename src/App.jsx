@@ -16,9 +16,7 @@ function App() {
 
   return (
     <div className="app-container">
-      <div className='aside'>
         <Aside />
-      </div>
 
       <div className="content-container">
         <header>
