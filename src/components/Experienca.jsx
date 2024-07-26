@@ -10,7 +10,7 @@ const Experienca = () => {
     <div className="mt-20">
       {/* contexto */}
         <section id="container_context">
-            <h2 className="text-[40px]">Experiencia pracita</h2>
+            <h2 className="text-[40px]">Experiencia practica</h2>
             <p>
                 Tengo experiencia práctica como desarrollador web autodidacta. He
                 trabajado en un proyecto en creación de un sitio web de servicios
