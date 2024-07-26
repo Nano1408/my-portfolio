@@ -69,7 +69,7 @@ const Contact = () => {
                         icon: "error",
                         title: "Error al enviar :(, intenta de nuevo!"
                     }); // manejar el resultado real del error
-                }, 2000);
+                }, 1000);
                 console.log('FAILED...', error.text);
             },
             );
