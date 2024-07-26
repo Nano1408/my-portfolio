@@ -25,7 +25,7 @@ const Teams = () => {
             <picture className="flex justify-center pt-4">
                 <img 
                 className="w-[300px] h-[298px]"
-                src="/creativeDirector.png" alt="" 
+                src="/creativeDirector.png" alt="director_iamge_png" 
                 />
             </picture>
         <div className="description text-center pt-4">
@@ -39,11 +39,11 @@ const Teams = () => {
             <picture className="flex justify-center pt-4">
                 <img 
                 className="w-[300px] h-[298px]"
-                src="/intern.png" alt="" 
+                src="/intern.png" alt="interno_image_png" 
                 />
             </picture>
         <div className="description text-center pt-4">
-            <p>Director Creativo</p>
+            <p>Desarrollador</p>
             <p>Fernando P.</p>
         </div>
         </div>
