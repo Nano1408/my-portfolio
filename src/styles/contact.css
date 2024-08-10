@@ -56,6 +56,10 @@ textarea:focus {
     transform: rotateX('angle');
 }
 
+.custom-select-wrapper select option {
+  color: #515151
+}
+
 
 /* estilos para los input y label */
 .wave-group1:nth-child(1), .wave-group1:nth-child(2) {
