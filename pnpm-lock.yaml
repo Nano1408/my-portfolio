@@ -20,6 +20,9 @@ importers:
       '@fontsource/marko-one':
         specifier: ^5.0.13
         version: 5.2.7
+      country-telephone-data:
+        specifier: ^0.6.3
+        version: 0.6.3
       dotenv:
         specifier: ^16.4.5
         version: 16.6.1
@@ -672,6 +675,9 @@ packages:
 
   concat-map@0.0.1:
     resolution: {integrity: sha512-/Srv4dswyQNBfohGpz9o6Yb3Gz3SrUDqBH5rTuhGR7ahtlbYKnVxw2bCFMRljaA7EXHaXZ8wsHdodFvbkhKmqg==}
+
+  country-telephone-data@0.6.3:
+    resolution: {integrity: sha512-3tQLA0vec+NDVlcaHhXGqILq/oQRsv4fRi4EedCfJqUuJUjQGdcSPM8r2IJIT2kZ5yWbiOCkXMgy7YTo8FNS2w==}
 
   cross-spawn@7.0.6:
     resolution: {integrity: sha512-uV2QOWP2nWzsy2aMp8aRibhi9dlzF5Hgh5SHaB9OiTGEyDTiJJyx0uy51QXdyWbtAHNua4XJzUKca3OzKUd3vA==}
@@ -2125,6 +2131,8 @@ snapshots:
   commander@4.1.1: {}
 
   concat-map@0.0.1: {}
+
+  country-telephone-data@0.6.3: {}
 
   cross-spawn@7.0.6:
     dependencies:

@@ -1,23 +1,52 @@
 import React, { useRef, useState, useEffect } from 'react';
 import emailjs from '@emailjs/browser';
-import { fetchCodeLatinoAmerica } from '@apis/CodeCountry';
+import { getAllPhoneCodes } from '@apis/phoneCountries';
 import '@styles/contact.css';
 import FormSubmit from '../buttons/FormSubmit';
 import Swal from 'sweetalert2'
 
+const detectUserCountryByTimezone = () => {
+  const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+
+      const map = {
+        "America/Bogota": "CO",
+        "America/Mexico_City": "MX",
+        "America/Argentina/Buenos_Aires": "AR",
+        "America/Santiago": "CL",
+        "America/Lima": "PE",
+        "America/Caracas": "VE",
+        "America/Montevideo": "UY",
+        "America/La_Paz": "BO",
+        "America/Guayaquil": "EC",
+        "Europe/Madrid": "ES",
+      };
+
+      return map[tz] || null;
+};
+
+
 const Contact = () => {
-    const [countries, setCountries] = useState([]);
     const [send, setSend] = useState("Enviar");
     const [isOpen, setIsOpen] = useState(false);
+    const [countries, setCountries] = useState([]);
+    const [selectedCountryCode, setSelectedCountryCode] = useState("");
+    
 
     useEffect(() => {
-        const getCountries = async () => {
-            const latinAmericanCountries = await fetchCodeLatinoAmerica();
-            setCountries(latinAmericanCountries);
-            // console.log(latinAmericanCountries)
-        };
+        const all = getAllPhoneCodes();
+        setCountries(all);
 
-        getCountries();
+        const userISO = detectUserCountryByTimezone();
+        
+
+        if (userISO) {
+          const found = all.find(c => c.iso2 === userISO.toLowerCase());
+          if (found) {
+            setSelectedCountryCode(found.code);
+          }
+        } else {
+          setSelectedCountryCode("+57"); // fallback Colombia
+        }
     }, []);
 
     // usando el useRef de EmailJs
@@ -28,7 +57,7 @@ const Contact = () => {
         e.preventDefault();
     
         emailjs
-            .sendForm('service_z1077oo', 'template_tv8hz9t', form.current, import.meta.env.VITE_EMAILJS_PUBLIC_KEY)
+            .sendForm('service_yzme59k', 'template_tv8hz9t', form.current, import.meta.env.VITE_EMAILJS_PUBLIC_KEY)
             .then(
             () => {
                 setTimeout(() => {
@@ -73,26 +102,27 @@ const Contact = () => {
                 console.log('FAILED...', error.text);
             },
             );
-        };
+    };
 
-        const handleFocus = () => {
-            setIsOpen(true);
-        };
-    
-        const handleBlur = () => {
-            setIsOpen(false);
-        };
+    const handleFocus = () => {
+        setIsOpen(true);
+    };
 
-    // Ordenar el arreglo de países alfabéticamente por el nombre común
-    const sortedCountries = countries.sort((a, b) => {
-        if (a.name.common < b.name.common) {
-            return -1;
-        }
-        if (a.name.common > b.name.common) {
-            return 1;
-        }
-        return 0;
-    });
+    const handleBlur = () => {
+        setIsOpen(false);
+    };
+
+    // const detectUserCountry = () => {
+    //   try {
+    //     const locale = Intl.DateTimeFormat().resolvedOptions().locale;
+    //     console.log(locale)
+    //     return locale.split('-')[1]; // ej: es-CO → CO
+    //   } catch {
+    //     return null;
+    //   }
+    // };
+
+
 
   return (
     <section>
@@ -188,16 +218,18 @@ const Contact = () => {
                     <select 
                     name="code_country" 
                     id="code_country" 
-                    defaultValue="code" 
+                    value={selectedCountryCode}
+                    onChange={(e) => setSelectedCountryCode(e.target.value)}
                     className='custom-select input mt-[8px] w-full h-[45px]'
                     onFocus={handleFocus} 
                     onBlur={handleBlur}
                     >
-                        <option value="code" disabled className='text-white'>Código país</option>
-                        {sortedCountries.map(country => (
-                            <option key={country.cca2} value={`${country.idd.root}${country.idd.suffixes}`} required>
-                                {country.name.common} ({country.idd.root}{country.idd.suffixes})
-                            </option>
+                        <option value="" disabled className='text-white'>Código país</option>
+
+                        {countries.map(country => (
+                          <option key={country.iso2} value={country.code}>
+                            {country.name} ({country.code})
+                          </option>
                         ))}
                     </select>
                 </div>
