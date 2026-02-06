@@ -36,7 +36,9 @@ const Aside = () => {
             <section id='profetion' className='text-[#E4E4E4] mt-10 w-full'>
                 <p>Profesión:</p>
                 <h3 className='text-2xl'>Frontend Developer</h3>
-                <span className='text-sm text-gray-400'>Enfocado en soluciones modernas apoyadas en IA</span> 
+                <div className='text-sm text-gray-400 w-3/4'>
+                    <span>Enfocado en soluciones modernas apoyadas en IA</span> 
+                </div>
             </section>
 
             {/* contexto 2*/}

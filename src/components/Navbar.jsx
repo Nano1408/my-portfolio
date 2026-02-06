@@ -10,50 +10,56 @@ const Navbar = () => {
     const [isScrolling, setIsScrolling] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
 
-    const handleScroll = () => {
-        if (window.scrollY > 50) {
-            setIsScrolled(true);
-        } else {
-            setIsScrolled(false);
-        }
+    const activeSectionRef = useRef('inicio');
 
-        if (!isScrolling) {
-            const sections = document.querySelectorAll('section');
-            let currentSection = activeSection;
-
-            sections.forEach(section => {
-                const element = document.getElementById(section.id);
-                if (element) {
-                    const rect = element.getBoundingClientRect();
-                    const topVisible = rect.top >= 0 && rect.top <= window.innerHeight / 2;
-                    const bottomVisible = rect.bottom >= window.innerHeight / 2 && rect.bottom <= window.innerHeight;
-
-                    if (topVisible || bottomVisible) {
-                        currentSection = section.id;
-                    }
-                }
-            });
-
-            // Si estamos en la parte superior de la página
-            if (window.scrollY === 0 || window.scrollY < 250) {
-                currentSection = 'inicio';
-            }
-
-            setActiveSection(currentSection);
-        }
-    };
-
+    // Manejo del efecto visual de scroll del navbar
     useEffect(() => {
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
+        const handleScrollEffect = () => {
+            setIsScrolled(window.scrollY > 50);
+        };
+        window.addEventListener('scroll', handleScrollEffect, { passive: true });
+        return () => window.removeEventListener('scroll', handleScrollEffect);
+    }, []);
+
+    // IntersectionObserver para detectar secciones visibles
+    useEffect(() => {
+        const sections = document.querySelectorAll('main section[id]');
+        if (!sections.length) return;
+
+        const observerOptions = {
+            root: null,
+            rootMargin: '-30% 0px -30% 0px', // Activa cuando el centro de section entra en viewport
+            threshold: 0
+        };
+
+        const observerCallback = (entries) => {
+            // Filtrar solo las intersections activas
+            const visibleEntries = entries.filter(entry => entry.isIntersecting);
+
+            if (visibleEntries.length > 0) {
+                // Tomar la que está más arriba visiblemente
+                const topmost = visibleEntries.reduce((top, current) => {
+                    const topRect = top.target.getBoundingClientRect();
+                    const currentRect = current.target.getBoundingClientRect();
+                    return Math.abs(currentRect.top) < Math.abs(topRect.top) ? current : top;
+                });
+
+                const newSection = topmost.target.id;
+                if (activeSectionRef.current !== newSection && !isScrolling) {
+                    activeSectionRef.current = newSection;
+                    setActiveSection(newSection);
+                }
+            }
+        };
+
+        const observer = new IntersectionObserver(observerCallback, observerOptions);
+        sections.forEach(section => observer.observe(section));
+
+        return () => observer.disconnect();
     }, [isScrolling]);
 
-    useEffect(() => {
-        // Verificar si estamos en el inicio al cargar la página
-        if (window.scrollY === 0) {
-            setActiveSection('inicio');
-        }
-    }, []);
+    const sobreMiSections = ['experiencia', 'educations', 'teams', 'review'];
+    const isSobreMiActive = sobreMiSections.includes(activeSection);
 
     const handleClick = (section) => {
         setIsScrolling(true);
@@ -62,7 +68,7 @@ const Navbar = () => {
         setTimeout(() => {
             setActiveSection(section);
             setIsScrolling(false);
-        }, 500); // Ajusta el tiempo para que coincida con la duración de la animación de desplazamiento
+        }, 500);
     };
 
     const toggleMenu = () => {
@@ -70,7 +76,7 @@ const Navbar = () => {
     };
 
     const navRef = useRef(null);
-    const hamburgerRef = useRef(null);
+    // const hamburgerRef = useRef(null);
 
     const handleClickOutside = useCallback((event) => {
         if (navRef.current && !navRef.current.contains(event.target) && !event.target.closest('.toggle')) {
@@ -96,7 +102,7 @@ return (
         <nav ref={navRef} className={`${isScrolled ? 'nav-scrolled' : ''} ${menuOpen ? 'menu-open' : ''}`}>
         <ul className={`container_ul_nav ${menuOpen ? 'open' : ''}`}>
             <li className={activeSection === 'inicio' ? 'selected' : 'unselected'} onClick={() => handleClick('inicio')}>Inicio</li>
-            <li className="menu">
+            <li className={`menu ${isSobreMiActive ? 'selected' : 'unselected'}`}>
                 <div className="flex items-center">
                     Sobre mí <IoIosArrowDropdownCircle className='arrow_icon pl-2 text-3xl'/>
                 </div>

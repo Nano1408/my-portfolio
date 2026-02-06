@@ -7,7 +7,7 @@ import Swal from 'sweetalert2'
 
 const Me = () => {
 
-    const email = "fernandoperez.99a@gmail.com";
+    const email = import.meta.env.VITE_EMAIL_GOOGLE_MY_ACCOUNT;
   
     const copyToClipboard = () => {
       navigator.clipboard.writeText(email).then(() => {
@@ -68,7 +68,7 @@ const Me = () => {
           {email}
         </a>
         
-        <a href="https://drive.google.com/file/d/1TdiIZgvZEpyPTd7g8SiXO5wL-jopPucg/view?usp=sharing" rel="noopener noreferrer" target="blank_">
+        <a href="https://drive.google.com/file/d/1qGRC7KFq8fOV2aC16wJtKE2gmYFBl02u/view?usp=drive_link" rel="noopener noreferrer" target="blank_">
           <button className="btn-cv px-12">Mira mi CV</button>
         </a>
       </section>
