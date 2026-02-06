@@ -47,7 +47,7 @@ const EagleFitnessProject = () => {
                 <div>
                     <picture>
                         <img
-                        src="/public/huella-de-regreso-png.png" 
+                        src="/huella-de-regreso-png.png" 
                         alt="huella-de-regreso-png" 
                         />
                     </picture>
