@@ -1,12 +1,11 @@
-import React from 'react'
 // Supports weights 200-900
 import '@fontsource-variable/inconsolata';
 import '@styles/aside.css'
 import { TfiGithub } from "react-icons/tfi";
-import { TiSocialLinkedinCircular } from "react-icons/ti";
-import { TiSocialGithubCircular } from "react-icons/ti";
-import { IoLogoInstagram } from "react-icons/io";
-import { TiSocialFacebookCircular } from "react-icons/ti";
+// import { TiSocialLinkedinCircular } from "react-icons/ti";
+// import { TiSocialGithubCircular } from "react-icons/ti";
+// import { IoLogoInstagram } from "react-icons/io";
+// import { TiSocialFacebookCircular } from "react-icons/ti";
 import Social from '../social/Social';
 
 const Aside = () => {
@@ -34,13 +33,14 @@ const Aside = () => {
             </section>
 
             {/* contexto */}
-            <section id='profetion' className='text-[#E4E4E4] mt-10'>
+            <section id='profetion' className='text-[#E4E4E4] mt-10 w-full'>
                 <p>Profesión:</p>
-                <h3 className='text-2xl'>Developer Frontend</h3>
+                <h3 className='text-2xl'>Frontend Developer</h3>
+                <span className='text-sm text-gray-400'>Enfocado en soluciones modernas apoyadas en IA</span> 
             </section>
 
             {/* contexto 2*/}
-            <section id='profetion' className='text-[#E4E4E4] mt-8'>
+            <section id='profetion' className='text-[#E4E4E4] mt-8 w-full'>
                 <p>Nacionalidad:</p>
                 <h3 className='text-2xl'>Córdoba, Colombia</h3>
             </section>

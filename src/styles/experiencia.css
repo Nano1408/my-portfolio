@@ -132,7 +132,7 @@
         STYLE CARD EAGLE FITNESS SAS
 ########################################*/
 .card_eagleFitness .img_project {
-    background: linear-gradient(90deg, #FFFFFF, #E4E4E4);
+    background: linear-gradient(90deg, #e0b4a1, #956956);
 }
 
 .card_eagleFitness .img_project img {
@@ -143,7 +143,7 @@
 
 .card_eagleFitness .img_project:hover img {
     cursor: pointer;
-    transform: scale(3.35) translateX(55px);
+    transform: scale(2.3) translateX(35px);
 }
 /* ########################################## */
 

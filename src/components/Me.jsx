@@ -1,4 +1,3 @@
-import React from "react";
 import "@styles/me.css";
 import "@fontsource/lilita-one";
 import "@fontsource-variable/inconsolata";
@@ -48,10 +47,10 @@ const Me = () => {
         </div>
 
         <p className="descritpion">
-          Con una pasión innata por la tecnología y su constante evolución, me
-          he especializado en el diseño, desarrollo y producción de paginas web.
-          Mis interéses se extienden al mundo de la tecnología, estoy siempre
-          dispuesto a asumir nuevos retos y proyectos, no dudes en contactarme.
+          desarrollador frontend apasionado por crear experiencias web claras, funcionales y atractivas.
+          Actualmente estudio Inteligencia Artificial y Prompt Engineering, usando la IA como una aliada 
+          para aprender más rápido, mejorar mi código y optimizar procesos.
+          Me motiva transformar ideas en productos digitales que realmente aporten valor.
         </p>
       </section>
 

@@ -1,6 +1,6 @@
 export const fetchCodeLatinoAmerica = async () => {
     try {
-        const response = await fetch('https://restcountries.com/v3.1/all');
+        const response = await fetch('https://restcountries.com/v3.1/all?fields=name,flags');
         const data = await response.json();
         // Filtrar países latinoamericanos
         const regions = ["South America", "Central America", "Caribbean"];
