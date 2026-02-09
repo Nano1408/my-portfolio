@@ -27,7 +27,7 @@ const detectUserCountryByTimezone = () => {
 
 const Contact = () => {
     const [send, setSend] = useState("Enviar");
-    const [isOpen, setIsOpen] = useState(false);
+    // const [isOpen, setIsOpen] = useState(false);
     const [countries, setCountries] = useState([]);
     const [selectedCountryCode, setSelectedCountryCode] = useState("");
     
@@ -54,63 +54,46 @@ const Contact = () => {
     
     // instancia que llama al template con mi publicKey
     const sendEmail = (e) => {
-        e.preventDefault();
-    
-        emailjs
-            .sendForm('service_yzme59k', 'template_tv8hz9t', form.current, import.meta.env.VITE_EMAILJS_PUBLIC_KEY)
-            .then(
-            () => {
-                setTimeout(() => {
-                    setSend('Enviar');
-                    const Toast = Swal.mixin({
-                        toast: true,
-                        position: "top-end",
-                        showConfirmButton: false,
-                        timer: 3000,
-                        timerProgressBar: true,
-                        didOpen: (toast) => {
-                        toast.onmouseenter = Swal.stopTimer;
-                        toast.onmouseleave = Swal.resumeTimer;
-                    }
-                    });
-                    Toast.fire({
-                        icon: "success",
-                        title: "Mensaje enviado, gracias!"
-                    }); // manejar el resultado real del envío
-                }, 2000);
-                console.log('SUCCESS!');
-            },
-            (error) => {
-                setTimeout(() => {
-                    setSend('Enviar');
-                    const Toast = Swal.mixin({
-                        toast: true,
-                        position: "top-end",
-                        showConfirmButton: false,
-                        timer: 3000,
-                        timerProgressBar: true,
-                        didOpen: (toast) => {
-                        toast.onmouseenter = Swal.stopTimer;
-                        toast.onmouseleave = Swal.resumeTimer;
-                    }
-                    });
-                    Toast.fire({
-                        icon: "error",
-                        title: "Error al enviar :(, intenta de nuevo!"
-                    }); // manejar el resultado real del error
-                }, 1000);
-                console.log('FAILED...', error.text);
-            },
-            );
+      e.preventDefault();
+      setSend("Enviando...");
+        
+      emailjs
+        .sendForm(
+          'service_yzme59k',
+          'template_tv8hz9t',
+          form.current,
+          import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+        )
+        .then(() => {
+          setSend("Enviar");
+          form.current.reset();
+        
+          Swal.fire({
+            icon: "success",
+            title: "Mensaje enviado",
+            text: "Gracias por contactarme 😊",
+            timer: 3000,
+            showConfirmButton: false,
+          });
+        })
+        .catch(() => {
+          setSend("Enviar");
+        
+          Swal.fire({
+            icon: "error",
+            title: "Error al enviar",
+            text: "Intenta nuevamente más tarde",
+          });
+        });
     };
 
-    const handleFocus = () => {
-        setIsOpen(true);
-    };
+    // const handleFocus = () => {
+    //     setIsOpen(true);
+    // };
 
-    const handleBlur = () => {
-        setIsOpen(false);
-    };
+    // const handleBlur = () => {
+    //     setIsOpen(false);
+    // };
 
     // const detectUserCountry = () => {
     //   try {
@@ -221,8 +204,8 @@ const Contact = () => {
                     value={selectedCountryCode}
                     onChange={(e) => setSelectedCountryCode(e.target.value)}
                     className='custom-select input mt-[8px] w-full h-[45px]'
-                    onFocus={handleFocus} 
-                    onBlur={handleBlur}
+                    // onFocus={handleFocus} 
+                    // onBlur={handleBlur}
                     >
                         <option value="" disabled className='text-white'>Código país</option>
 
