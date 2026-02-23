@@ -7,7 +7,7 @@ import Swal from 'sweetalert2'
 
 const Me = () => {
 
-    const email = import.meta.env.VITE_EMAIL_GOOGLE_MY_ACCOUNT;
+    const email = "fernandoperez.99a@gmail.com"
   
     const copyToClipboard = () => {
       navigator.clipboard.writeText(email).then(() => {
