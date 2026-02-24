@@ -13,7 +13,7 @@ const Experienca = () => {
         <section id="container_context">
             <h2 className="text-[40px]">Experiencia practica</h2>
             <p>
-                He trabajado en proyectos reales utilizando React, Firebase y APIs externas, creando interfaces 
+                Desarrollé aplicaciones con React y Firebase optimizando tiempos de carga en un 30%, creando interfaces 
                 responsivas y soluciones funcionales.
                 Uso IA en mi día a día para análisis, generación de ideas, 
                 debugging y mejora continua, lo que me permite crecer de forma más rápida y 
