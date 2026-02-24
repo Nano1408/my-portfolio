@@ -31,7 +31,7 @@ const Me = () => {
 
 
   return (
-    <div className="container_me w-[800px] mt-40">
+    <div className="container_me w-full max-w-[800px] px-6 mx-auto mt-20">
       <section id="me">
         <Social />
         <div className="name_fernando_profile flex">
