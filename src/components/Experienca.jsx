@@ -5,6 +5,7 @@ import HuellaDeRegreso from '@proyectos/HuellaDeRegreso';
 import FernaShop from '../proyectos/FernaShop';
 import WeatherProject from '@proyectos/WeatherProject'
 import AlbumMusicProject from '@proyectos/AlbumMusicProject';
+import Jardineria from '@proyectos/Jardineria';
 
 const Experienca = () => {
   return (
@@ -22,6 +23,9 @@ const Experienca = () => {
         </section>
         {/* card proyecto 3 (Huella de regreso) */}
         <HuellaDeRegreso />
+
+        {/* card proyecto 3 (Huella de regreso) */}
+        <Jardineria />
         
         {/* card proyecto 4 (FernaShop - panel admin) */}
         <FernaShop />

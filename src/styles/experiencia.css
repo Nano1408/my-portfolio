@@ -135,15 +135,23 @@
     background: linear-gradient(90deg, #e0b4a1, #956956);
 }
 
-.card_eagleFitness .img_project img {
+.card_eagleFitness .img_project img, .card_jardineria .img_project img {
     width: 900px;
     height: auto;
     transition: .2s ease-in-out;
 }
 
-.card_eagleFitness .img_project:hover img {
+.card_eagleFitness .img_project:hover img, .card_jardineria .img_project:hover img {
     cursor: pointer;
     transform: scale(2.3) translateX(35px);
+}
+/* ########################################## */
+
+/*
+        STYLE CARD JARDINERIA SAS
+########################################*/
+.card_jardineria .img_project {
+    background: linear-gradient(90deg, #7b7373, #797070);
 }
 /* ########################################## */
 
