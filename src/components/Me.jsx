@@ -47,7 +47,7 @@ const Me = () => {
         </div>
 
         <p className="descritpion">
-          desarrollador frontend apasionado por crear experiencias web claras, funcionales y atractivas.
+          Desarrollo interfaces modernas, escalables y optimizadas enfocadas en rendimiento y experiencia de usuario.
           Actualmente estudio Inteligencia Artificial y Prompt Engineering, usando la IA como una aliada 
           para aprender más rápido, mejorar mi código y optimizar procesos.
           Me motiva transformar ideas en productos digitales que realmente aporten valor.
