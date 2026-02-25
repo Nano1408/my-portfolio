@@ -1,24 +1,34 @@
-import React from 'react'
-import BuyCar from '@moreProjects/BuyCar'
 import { FaCode } from "react-icons/fa";
-import HermanasDominicana from '@moreProjects/HermanasDominicana';
-import PosterMovie from '@moreProjects/PosterMovie';
-import AdoptionPuppies from '@moreProjects/AdoptionPuppies';
+import MoreProjectCard from "../moreProjects/MoreProjectCard";
+import { moreProjects } from "../data/moreProjects";
+// import BuyCar from '@moreProjects/BuyCar'
+// import HermanasDominicana from '@moreProjects/HermanasDominicana';
+// import PosterMovie from '@moreProjects/PosterMovie';
+// import AdoptionPuppies from '@moreProjects/AdoptionPuppies';
 
 const MoreProjects = () => {
   return (
     <div className="mt-20">
         <div className='flex items-center'>
-            <FaCode className='text-[#FFA643] w-[49px] h-[49px] mr-4'/>
-            <h2 className='py-6'>Más proyectos</h2>
+            <FaCode className='text-[#ffffff] w-[49px] h-[49px] mr-4'/>
+            <h2 className='py-6 text-white'>Más proyectos</h2>
         </div>
 
-        <section>
+        <section className="grid md:grid-cols-2 gap-8">
+        {moreProjects.map((project, index) => (
+          <MoreProjectCard
+            key={index}
+            {...project}
+          />
+        ))}
+      </section>
+
+        {/* <section>
             <BuyCar />
             <HermanasDominicana />
             <PosterMovie />
             <AdoptionPuppies />
-        </section>
+        </section> */}
     </div>
   )
 }

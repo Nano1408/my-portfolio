@@ -1,11 +1,6 @@
 // Supports weights 200-900
 import '@fontsource-variable/inconsolata';
 import '@styles/aside.css'
-import { TfiGithub } from "react-icons/tfi";
-// import { TiSocialLinkedinCircular } from "react-icons/ti";
-// import { TiSocialGithubCircular } from "react-icons/ti";
-// import { IoLogoInstagram } from "react-icons/io";
-// import { TiSocialFacebookCircular } from "react-icons/ti";
 import Social from '../social/Social';
 
 const Aside = () => {
@@ -16,92 +11,60 @@ const Aside = () => {
     const whatsappURL = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodedMessage}`;
 
   return (
-    <aside>
-        <div id='aside' className='max-w-[500px] flex flex-col items-center bg-[#1B1B1B] py-8 px-5 m-10 rounded-[30px]'>
-            {/* imagenes */}
-            <section className='flex flex-col items-center'>
-                {/* icon hithub */}
-                <TfiGithub className='text-8xl text-white mb-7'/>
-                {/* foto de perfil */}
-                <picture>
-                    <img 
-                    className='resposive_image'
-                    src="/profile_photo.jpg" 
-                    alt="profile_photo" 
-                    />
-                </picture>
-            </section>
+    <aside className='animate-float'>
+        <div
+          id='aside'
+          className='w-[320px] flex flex-col items-center
+                     bg-neutral-900 border border-neutral-800
+                     py-10 px-6 m-10 rounded-3xl'
+        >
+        
+          {/* FOTO */}
+          <picture className="w-40 h-40 rounded-2xl overflow-hidden border border-neutral-800 shadow-lg shadow-black/30">
+            <img 
+              src="/perfil-photo.png" 
+              alt="Fernando Perez"
+              className="w-full h-full object-cover object-top"
+            />
+          </picture>
 
-            {/* contexto */}
-            <section id='profetion' className='text-[#E4E4E4] mt-10 w-full'>
-                <p>Profesión:</p>
-                <h3 className='text-2xl'>Frontend Developer</h3>
-                <div className='text-sm text-gray-400 w-3/4'>
-                    <span>Enfocado en soluciones modernas apoyadas en IA</span> 
-                </div>
-            </section>
+          {/* PROFESIÓN */}
+          <section className='mt-8 text-neutral-300 text-center'>
+            <p className="text-lg uppercase tracking-wider">
+              Frontend Developer
+            </p>
+            
+            <p className="text-xs text-neutral-500 mt-1">
+              Interfaces modernas • Performance • UX
+            </p>
+            <p className='text-sm text-neutral-500 mt-2'>
+              Enfocado en soluciones modernas apoyadas en IA
+            </p>
+          </section>
 
-            {/* contexto 2*/}
-            <section id='profetion' className='text-[#E4E4E4] mt-8 w-full'>
-                <p>Nacionalidad:</p>
-                <h3 className='text-2xl'>Córdoba, Colombia</h3>
-            </section>
+          {/* UBICACIÓN */}
+          <section className='mt-6 text-neutral-300 text-center'>
+            <p className='text-sm text-neutral-500'>Ubicación</p>
+            <h3 className='text-lg mt-1'>Colombia</h3>
+          </section>
 
-            {/* iconos sociales */}
-            <Social />
+          <Social />
 
-            {/* boton de trabajemos juntos */}
-            <section className='w-full flex justify-center mt-5'>
-                <a href={whatsappURL} target='blank_'>
-                    <button className='btn_work font-extrabold'>
-                            <span className="span-mother">
-                                <span>¡</span>
-                                <span>T</span>
-                                <span>r</span>
-                                <span>a</span>
-                                <span>b</span>
-                                <span>a</span>
-                                <span>j</span>
-                                <span>e</span>
-                                <span>m</span>
-                                <span>o</span>
-                                <span>s</span>
-                                <span></span>
-                                <span className='pr-1'> </span>
-                                <span>j</span>
-                                <span>u</span>
-                                <span>n</span>
-                                <span>t</span>
-                                <span>o</span>
-                                <span>s</span>
-                                <span>¡</span>
-                            </span>
-                            <span className="span-mother2">
-                            <span>¡</span>
-                                <span>T</span>
-                                <span>r</span>
-                                <span>a</span>
-                                <span>b</span>
-                                <span>a</span>
-                                <span>j</span>
-                                <span>e</span>
-                                <span>m</span>
-                                <span>o</span>
-                                <span>s</span>
-                                <span></span>
-                                <span className='pr-1'></span>
-                                <span>j</span>
-                                <span>u</span>
-                                <span>n</span>
-                                <span>t</span>
-                                <span>o</span>
-                                <span>s</span>
-                                <span>¡</span>
-                            </span>
-                    </button>
-                </a>
-                    
-            </section>
+          {/* BOTÓN SIMPLE */}
+          <section className='w-full flex justify-center mt-8'>
+            <a 
+              href={whatsappURL} 
+              target="_blank"
+              className="w-full mt-6 px-6 py-3 rounded-xl 
+                         bg-orange-500 text-white font-medium
+                         text-center
+                         transition-all duration-300
+                         hover:bg-orange-600 hover:scale-105"
+            >
+              Trabajemos juntos
+            </a>
+          </section>
+
         </div>
         
     </aside>

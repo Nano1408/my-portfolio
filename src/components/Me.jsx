@@ -31,46 +31,59 @@ const Me = () => {
 
 
   return (
-    <div className="container_me w-full max-w-[800px] px-6 mx-auto mt-20">
-      <section id="me">
+    <div className="container_me w-full max-w-[800px] px-6 mx-auto mt-24">
+    <section id="me" className="animate-fadeUp relative max-w-4xl mx-auto px-6 pt-32 pb-24">
         <Social />
-        <div className="name_fernando_profile flex">
-          {/* la imagen solo aparece cuando es tamaño maximo de 1200px */}
-          <picture className="img_profile">
-              <img
-                className="resposive_image"
-                src="/profile_photo.jpg"
-                alt="profile_photo"
-              />
-            </picture>
-            <h1 className="title">Hey, soy Fernando Pérez</h1>
+
+        <div className="name_fernando_profile flex items-center gap-6">
+          <h1 className="text-5xl font-semibold tracking-tight text-white">
+            Fernando Pérez
+          </h1>
         </div>
 
-        <p className="descritpion">
-          Desarrollo interfaces modernas, escalables y optimizadas enfocadas en rendimiento y experiencia de usuario.
-          Actualmente estudio Inteligencia Artificial y Prompt Engineering, usando la IA como una aliada 
-          para aprender más rápido, mejorar mi código y optimizar procesos.
-          Me motiva transformar ideas en productos digitales que realmente aporten valor.
+        <p className="text-neutral-300 mt-6 leading-relaxed max-w-2xl">
+          Frontend Developer enfocado en crear interfaces modernas,
+          escalables y optimizadas para rendimiento y experiencia de usuario.
+          Uso IA como herramienta estratégica para mejorar procesos y construir
+          productos digitales con impacto real.
         </p>
       </section>
 
-      {/* botones para el CV */}
-      <section className="container_cv_mail w-full flex">
+      <p className="text-neutral-500 text-sm mt-10">
+        ¿Te interesa trabajar conmigo?
+      </p>
+
+      <section className="container_cv_mail w-full flex flex-col sm:flex-row gap-4 mt-6">
+
+        {/* CV */}
         <a
-          href={`mailto:${email}`}
-          className="btn-cv mr-4 px-8 flex justify-center"
+          href="https://drive.google.com/file/d/1qGRC7KFq8fOV2aC16wJtKE2gmYFBl02u/view?usp=drive_link"
+          target="_blank"
           rel="noopener noreferrer"
+          className="relative overflow-hidden px-8 py-3 rounded-xl 
+                     bg-white text-black font-medium
+                     transition-all duration-300
+                     hover:scale-[1.02]"
         >
-          <FaRegCopy
-          className="icon-copy cursor-pointer text-xl mr-3"
+          Descargar CV
+        </a>
+
+        {/* Email */}
+        <button
           onClick={copyToClipboard}
-          />
-          {email}
-        </a>
-        
-        <a href="https://drive.google.com/file/d/1qGRC7KFq8fOV2aC16wJtKE2gmYFBl02u/view?usp=drive_link" rel="noopener noreferrer" target="blank_">
-          <button className="btn-cv px-12">Mira mi CV</button>
-        </a>
+          className="px-6 py-3 rounded-xl 
+                     border border-neutral-700
+                     text-neutral-300
+                     flex items-center justify-center gap-3
+                     transition-all duration-300
+                     hover:border-white hover:text-white"
+        >
+          <FaRegCopy className="text-lg" />
+          <span className="text-sm sm:text-base">
+            {email}
+          </span>
+        </button>
+
       </section>
     </div>
   );
