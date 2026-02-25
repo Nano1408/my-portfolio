@@ -1,84 +1,62 @@
-import '@styles/education.css'
-import '@fontsource-variable/inconsolata';
+import { educationData } from '../data/education'
 
 const Education = () => {
   return (
-    <div>
-        <h2>Educación y cursos</h2>
-
-        {/* section software Enginner */}
-        <hr className='mb-11'/>
-      <section id='education' className='flex justify-between'>
-        <div className='first_date_profile'>
-          <p>En 2021 - Actualmente</p>
-          <div>
-              <h4>Ingeniería De Software</h4>
-              <p>Corporación U. Iberoamericana</p>
-          </div>
-        </div>
-        <p className='text-[15px] w-[300px]'>Soy estudiante de Ingeniería de Software en quinto semestre, 
-            con experiencia en desarrollo web, bases de datos y programación. 
-            Mi formación incluye proyectos prácticos que han fortalecido mis 
-            habilidades técnicas y de resolución de problemas.</p>
-      </section>
-      <hr className='mt-9'/>
+    <section className="relative max-w-4xl mx-auto px-6 py-24">
       
-      {/* section developer frontend */}
-      <hr className='mb-11'/>
-      <section id='education' className='flex justify-between'>
-        <div className='first_date_profile'>
-          <p>Jun 2022 - Dic 2022</p>
-          <div>
-            <h4>Desarrollador Frontend</h4>
-            <p>Politécnico Andino</p>
-          </div>
-        </div>
-        <p className='text-[15px] w-[300px]'>
-            Completé un diplomado intensivo en desarrollo web, 
-            donde aprendí JavaScript a nivel intermedio, React y el uso de API REST. 
-            Esta formación me permitió mejorar mis habilidades en el desarrollo de 
-            aplicaciones web modernas y dinámicas.</p>
-      </section>
-      <hr className='mt-9'/>
+      <h2 className="text-4xl font-bold text-white mb-20 tracking-tight">
+        Educación y cursos
+      </h2>
 
-      {/* section developer ReactJS */}
-      <hr className='mb-11'/>
-      <section id='education' className='flex justify-between'>
-        <div className='first_date_profile'>
-          <p>Ene 2021 - May 2022</p>
-          <div>
-              <h4>Desarrollador ReactJS</h4>
-              <p>Instituto T. Metropolitano</p>
-          </div>
-        </div>
-        <p className='text-[15px] w-[300px]'>
-            Completé un diplomado intensivo en ReactJS, donde profundicé 
-            mis conocimientos en el desarrollo de aplicaciones web utilizando 
-            esta tecnología líder en el mercado. Adquirí habilidades avanzadas 
-            en la creación de interfaces de usuario dinámicas y eficientes.
-            </p>
-      </section>
-      <hr className='mt-9'/>
+      {/* Línea vertical */}
+      <div className="relative border-l border-white/10 pl-12 space-y-20">
 
-      {/* section Redes de Datos */}
-      <hr className='mb-11'/>
-      <section id='education' className='flex justify-between'>
-        <div className='first_date_profile'>
-          <p>Ene 2018 - Ago 2020</p>
-          <div>
-            <h4>Teg. Redes De Datos</h4>
-            <p>SENA</p>
+        {educationData.map((item, index) => (
+          <div key={index} className="relative">
+
+            {/* Punto */}
+            <span className="
+              absolute -left-[13px] top-2
+              w-5 h-5
+              rounded-full
+              bg-gradient-to-r from-[#FF9B25] to-[#ffb347]
+              shadow-lg
+              shadow-orange-500/30
+            " />
+
+            {/* Card */}
+            <div className="
+              bg-white/[0.03]
+              border border-white/10
+              backdrop-blur-xl
+              rounded-2xl
+              p-8
+              transition-all duration-500 ease-out
+              hover:-translate-y-2
+              hover:shadow-[0_20px_40px_rgba(0,0,0,0.6)]
+            ">
+              <p className="text-sm text-neutral-500 mb-3 tracking-wide">
+                {item.date}
+              </p>
+
+              <h3 className="text-2xl font-semibold text-white mb-2">
+                {item.title}
+              </h3>
+
+              <p className="text-orange-400 text-sm mb-6">
+                {item.institution}
+              </p>
+
+              <p className="text-neutral-400 text-sm leading-relaxed max-w-xl">
+                {item.description}
+              </p>
+            </div>
+
           </div>
-        </div>
-        <p className='text-[15px] w-[300px]'>
-            Completé una tecnología en Gestión de Redes de Datos, enfocada 
-            en la infraestructura de redes y cableado estructurado. Adquirí 
-            conocimientos sólidos en diseño, implementación y mantenimiento 
-            de redes, así como en normativas y estándares de cableado.
-        </p>
-      </section>
-      <hr className='mt-9'/>
-    </div>
+        ))}
+
+      </div>
+    </section>
   )
 }
 
