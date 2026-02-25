@@ -16,6 +16,7 @@
     "@fontsource/marko-one": "^5.0.13",
     "country-telephone-data": "^0.6.3",
     "dotenv": "^16.4.5",
+    "framer-motion": "^12.34.3",
     "lodash": "^4.17.21",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
