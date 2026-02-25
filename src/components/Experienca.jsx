@@ -9,7 +9,7 @@ const Experienca = () => {
     <div className="mt-20">
       {/* contexto */}
       <section id="container_context">
-          <h2 className="text-[40px]">Experiencia practica</h2>
+          <h2 className="text-4xl font-bold">Experiencia practica</h2>
           <p>
               Desarrollé aplicaciones con React y Firebase optimizando tiempos de carga en un 30%, creando interfaces 
               responsivas y soluciones funcionales.

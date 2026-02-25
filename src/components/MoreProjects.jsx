@@ -11,7 +11,7 @@ const MoreProjects = () => {
     <div className="mt-20">
         <div className='flex items-center'>
             <FaCode className='text-[#ffffff] w-[49px] h-[49px] mr-4'/>
-            <h2 className='py-6 text-white'>Más proyectos</h2>
+            <h2 className='py-6 text-white text-4xl font-bold'>Más proyectos</h2>
         </div>
 
         <section className="
