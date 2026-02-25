@@ -14,7 +14,18 @@ const MoreProjects = () => {
             <h2 className='py-6 text-white'>Más proyectos</h2>
         </div>
 
-        <section className="grid md:grid-cols-2 gap-8">
+        <section className="
+                mt-16
+                grid
+                grid-cols-1
+                md:grid-cols-1
+                lg:grid-cols-2
+                2xl:grid-cols-2
+                gap-8
+                max-w-[1300px]
+                mx-auto
+                justify-items-center"
+        >
         {moreProjects.map((project, index) => (
           <MoreProjectCard
             key={index}

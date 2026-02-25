@@ -37,7 +37,7 @@ const ProjectCard = ({
   const [style, setStyle] = useState({});
   const [glow, setGlow] = useState({ x: 50, y: 50 });
 
-  const isReversed = index % 2 !== 0;
+  // const isReversed = index % 2 !== 0;
 
   const handleMouseMove = (e) => {
     if (window.innerWidth < 1024) return;
@@ -83,11 +83,10 @@ const ProjectCard = ({
       ref={cardRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      style={style}
+      style={{ ...style, transformStyle: "preserve-3d" }}
       className="
         group
         relative
-        mt-16
         rounded-3xl
         border border-white/10
         bg-white/[0.03]
@@ -99,18 +98,20 @@ const ProjectCard = ({
         flex
         overflow-hidden
         will-change-transform
+        max-w-[650px]
+        w-full
       "
     >
       {/* Glow dinámico */}
       <div
-        className="absolute inset-0 rounded-3xl pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+        className="absolute z-10 inset-0 rounded-3xl pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300"
         style={{
-          background: `radial-gradient(circle at ${glow.x}% ${glow.y}%, rgba(255,166,67,0.15), transparent 60%)`
+          background: `radial-gradient(circle at ${glow.x}% ${glow.y}%, rgba(255, 167, 67, 0.063), transparent 60%)`
         }}
       />
 
       {/* Layout dinámico */}
-      <div className={`flex w-full ${isReversed ? "flex-row-reverse" : ""}`}>
+      <div className="flex flex-col h-full justify-between">
 
         {/* TEXTO */}
         <div className="card_project p-10 flex flex-col justify-center">
@@ -131,11 +132,11 @@ const ProjectCard = ({
             ))}
           </div>
 
-            <div className="flex gap-3">
-  
+            {/* BOTONES */}
+            <div className="flex gap-3 items-center">
               {demo && (
                 <a href={demo} target="_blank" rel="noopener noreferrer">
-                  <button className="px-5 py-2 rounded-xl bg-[#FF9B25] text-black font-medium hover:scale-105 transition">
+                  <button className="px-4 py-2 rounded-lg bg-gradient-to-r from-[#FF9B25] to-[#ffb347] text-black text-sm font-semibold hover:scale-105 transition-all duration-300 shadow-md">
                     Demo
                   </button>
                 </a>
@@ -143,7 +144,7 @@ const ProjectCard = ({
 
               {github && (
                 <a href={github} target="_blank" rel="noopener noreferrer">
-                  <button className="px-5 py-2 rounded-xl bg-white text-black font-medium hover:scale-105 transition">
+                  <button className="px-4 py-2 rounded-lg bg-neutral-800 text-white text-sm font-semibold hover:bg-neutral-700 transition-all duration-300">
                     Github
                   </button>
                 </a>
@@ -151,7 +152,7 @@ const ProjectCard = ({
 
               {web && (
                 <a href={web} target="_blank" rel="noopener noreferrer">
-                  <button className="px-5 py-2 rounded-xl bg-[#FF9B25] text-black font-medium hover:scale-105 transition">
+                  <button className="px-4 py-2 rounded-lg bg-[#21759B] text-white text-sm font-semibold hover:brightness-110 transition-all duration-300">
                     Web
                   </button>
                 </a>
@@ -165,18 +166,60 @@ const ProjectCard = ({
         <a
           href={demo || web}
           target="_blank"
-          className="
-            img_project
-            flex items-center justify-center
-            bg-gradient-to-br from-neutral-900 to-black
-          "
+          className="relative block"
         >
-          <div className="p-10 transition-transform duration-700 hover:scale-105">
-            <img
-              src={image}
-              alt={title}
-              className="rounded-xl shadow-2xl"
-            />
+          <div className="relative w-full flex justify-center">
+
+            {/* Sombra difusa tipo Vercel */}
+            <div className="
+              absolute
+              bottom-[-20px]
+              w-[80%]
+              h-[40px]
+              bg-black/40
+              blur-2xl
+              rounded-full
+            " />
+
+            {/* Panel flotante */}
+            <div className="
+              relative
+              w-[95%]
+              h-[230px]
+              rounded-2xl
+              overflow-hidden
+              bg-white/5
+              border border-white/10
+              shadow-[0_40px_80px_rgba(0,0,0,0.6)]
+              backdrop-blur-xl
+              transition-all duration-700
+              group-hover:scale-[1.03]
+              group-hover:-translate-y-2
+            " >
+            
+              {/* Reflejo sutil */}
+              <div className="
+                absolute inset-0
+                bg-gradient-to-br
+                from-white/10
+                via-transparent
+                to-transparent
+                pointer-events-none
+              " />
+
+              <img
+                src={image}
+                alt={title}
+                className="
+                  w-full
+                  h-full
+                  object-cover
+                  transition duration-700
+                  group-hover:scale-110
+                "
+              />
+            </div>
+
           </div>
         </a>
 

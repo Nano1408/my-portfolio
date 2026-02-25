@@ -18,13 +18,15 @@ const Experienca = () => {
               consciente como desarrollador.
           </p>
       </section>
-      {projects.map((project, index) => (
-        <ProjectCard
-          key={index}
-          index={index}
-          {...project}
-        />
-      ))}
+      <section className="mt-16 grid grid-cols-1 lg:grid-cols-2 gap-10 justify-items-center">
+        {projects.map((project, index) => (
+          <ProjectCard
+            key={index}
+            index={index}
+            {...project}
+          />
+        ))}
+      </section>
         {/* card proyecto 3 (Huella de regreso) */}
         {/* <HuellaDeRegreso /> */}
 
