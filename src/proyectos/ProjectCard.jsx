@@ -55,15 +55,12 @@ const ProjectCard = ({
     const rotateX = ((y - centerY) / centerY) * -8;
     const rotateY = ((x - centerX) / centerX) * 8;
 
-    setStyle({
-      transform: `
-        perspective(1000px)
-        rotateX(${rotateX}deg)
-        rotateY(${rotateY}deg)
-        scale3d(1.02, 1.02, 1.02)
-      `,
-      transition: "transform 0.1s ease-out"
-    });
+    card.style.transform = `
+      perspective(1000px)
+      rotateX(${rotateX}deg)
+      rotateY(${rotateY}deg)
+      scale3d(1.02, 1.02, 1.02)
+    `;
 
     setGlow({
       x: (x / rect.width) * 100,
@@ -73,10 +70,8 @@ const ProjectCard = ({
   };
 
   const handleMouseLeave = () => {
-    setStyle({
-      transform: "perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1,1,1)",
-      transition: "transform 0.6s cubic-bezier(.03,.98,.52,.99)"
-    });
+    cardRef.current.style.transform =
+    "perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1,1,1)";
   };
 
   useEffect(() => {
@@ -105,7 +100,7 @@ const ProjectCard = ({
       ref={cardRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      style={{...style, transformStyle: "preserve-3d", transitionDelay: `${index * 100}ms`}}
+      style={{transformStyle: "preserve-3d"}}
       className={`
         group
         relative
@@ -114,7 +109,9 @@ const ProjectCard = ({
         bg-white/[0.03]
         backdrop-blur-2xl
         transition-all duration-700 ease-out
-        ${isVisible ? "opacity-100 translate-y-0 blur-0" : "opacity-0 translate-y-10 blur-sm"}
+        ${isVisible 
+        ? "opacity-100 translate-y-0 blur-0" 
+        : "opacity-0 translate-y-10 blur-sm"}
         hover:-translate-y-2
         hover:shadow-[0_30px_50px_rgba(0,0,0,0.7)]
         flex
@@ -126,9 +123,16 @@ const ProjectCard = ({
     >
       {/* Glow dinámico */}
       <div
-        className="absolute z-10 inset-0 rounded-3xl pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+        className={`
+         ${isVisible 
+         ? "opacity-100 translate-y-0 blur-0" 
+         : "opacity-0 translate-y-10 blur-sm"}
+         absolute z-10 inset-0 rounded-3xl pointer-events-none opacity-0 group-hover:opacity-100 
+         transition-opacity duration-300
+        `}
         style={{
-          background: `radial-gradient(circle at ${glow.x}% ${glow.y}%, rgba(255, 167, 67, 0.063), transparent 60%)`
+          background: `radial-gradient(circle at ${glow.x}% ${glow.y}%, rgba(255, 167, 67, 0.063), transparent 60%)`,
+          transitionDelay: `${index * 120}ms`
         }}
       />
 
