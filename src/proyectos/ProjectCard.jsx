@@ -95,7 +95,7 @@ const ProjectCard = ({
         transition-all duration-500
         hover:-translate-y-2
         hover:shadow-[0_30px_50px_rgba(0,0,0,0.7)]
-        hover:shadow-cyan-500/10
+        hover:shadow-yellow-700/10
         flex
         overflow-hidden
         will-change-transform
@@ -105,7 +105,7 @@ const ProjectCard = ({
       <div
         className="absolute inset-0 rounded-3xl pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300"
         style={{
-          background: `radial-gradient(circle at ${glow.x}% ${glow.y}%, rgba(213, 194, 194, 0.08), transparent 60%)`
+          background: `radial-gradient(circle at ${glow.x}% ${glow.y}%, rgba(255,166,67,0.15), transparent 60%)`
         }}
       />
 
