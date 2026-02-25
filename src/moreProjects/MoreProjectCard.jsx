@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 
 const MoreProjectCard = ({
   title,
@@ -11,6 +11,7 @@ const MoreProjectCard = ({
   const cardRef = useRef(null);
   const [style, setStyle] = useState({});
   const [glow, setGlow] = useState({ x: 50, y: 50 });
+  const [isVisible, setIsVisible] = useState(false);
 
   const handleMouseMove = (e) => {
     if (window.innerWidth < 1024) return;
@@ -51,13 +52,34 @@ const MoreProjectCard = ({
     });
   };
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.2 }
+    );
+
+    if (cardRef.current) {
+      observer.observe(cardRef.current);
+    }
+
+    return () => {
+      if (cardRef.current) {
+        observer.unobserve(cardRef.current);
+      }
+    };
+  }, []);
+
   return (
     <div
       ref={cardRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       style={style}
-      className="
+      className={`
         relative
         rounded-2xl
         border border-white/10
@@ -66,10 +88,11 @@ const MoreProjectCard = ({
         p-6
         overflow-hidden
         transition-all duration-500
+        ${isVisible ? "opacity-100 translate-y-0 blur-0" : "opacity-0 translate-y-10 blur-sm"}
         hover:-translate-y-2
         hover:shadow-[0_20px_60px_rgba(0,0,0,0.6)]
         will-change-transform
-      "
+      `}
     >
 
       {/* Glow dinámico */}

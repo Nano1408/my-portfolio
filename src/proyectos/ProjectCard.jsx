@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { FaReact } from "react-icons/fa";
 import { RiTailwindCssFill } from "react-icons/ri";
 import { IoLogoFirebase } from "react-icons/io5";
@@ -36,6 +36,7 @@ const ProjectCard = ({
   const cardRef = useRef(null);
   const [style, setStyle] = useState({});
   const [glow, setGlow] = useState({ x: 50, y: 50 });
+  const [isVisible, setIsVisible] = useState(false);
 
   // const isReversed = index % 2 !== 0;
 
@@ -78,29 +79,50 @@ const ProjectCard = ({
     });
   };
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.2 }
+    );
+
+    if (cardRef.current) {
+      observer.observe(cardRef.current);
+    }
+
+    return () => {
+      if (cardRef.current) {
+        observer.unobserve(cardRef.current);
+      }
+    };
+  }, []);
+
   return (
     <section
       ref={cardRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      style={{ ...style, transformStyle: "preserve-3d" }}
-      className="
+      style={{...style, transformStyle: "preserve-3d", transitionDelay: `${index * 100}ms`}}
+      className={`
         group
         relative
         rounded-3xl
         border border-white/10
         bg-white/[0.03]
         backdrop-blur-2xl
-        transition-all duration-500
+        transition-all duration-700 ease-out
+        ${isVisible ? "opacity-100 translate-y-0 blur-0" : "opacity-0 translate-y-10 blur-sm"}
         hover:-translate-y-2
         hover:shadow-[0_30px_50px_rgba(0,0,0,0.7)]
-        hover:shadow-yellow-700/10
         flex
         overflow-hidden
         will-change-transform
         max-w-[650px]
         w-full
-      "
+      `}
     >
       {/* Glow dinámico */}
       <div
