@@ -2,15 +2,18 @@ import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
 import Swal from "sweetalert2";
+import "@styles/contact.css";
 
 export default function Contact() {
   const form = useRef();
 
   const [countries, setCountries] = useState([]);
-  const [selectedCountryCode, setSelectedCountryCode] = useState("");
+  const [selectedCountry, setSelectedCountry] = useState(null);
   const [send, setSend] = useState("Enviar mensaje");
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState({});
+  const [open, setOpen] = useState(false);
+  const selectRef = useRef(null);
 
   // -----------------------------
   // Cargar códigos de país
@@ -32,10 +35,22 @@ export default function Contact() {
 
         const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
         if (timezone.includes("Bogota")) {
-          setSelectedCountryCode("+57");
+          const colombia = formatted.find(c => c.code === "+57");
+          if (colombia) setSelectedCountry(colombia);
         }
       });
   }, []);
+
+  useEffect(() => {
+      const handleClickOutside = (e) => {
+        if (selectRef.current && !selectRef.current.contains(e.target)) {
+          setOpen(false);
+        }
+      };
+  
+      document.addEventListener("mousedown", handleClickOutside);
+      return () => document.removeEventListener("mousedown", handleClickOutside);
+    }, []);
 
   // -----------------------------
   // Validación simple
@@ -134,20 +149,48 @@ export default function Contact() {
           <Input name="company" placeholder="Empresa *" error={errors.company} className="mt-6"/>
           <Input name="user_email" type="email" placeholder="Correo electrónico *" error={errors.user_email} className="mt-6"/>
 
+            {/* SELECT PERSONALIZADO */}
           <div className="grid md:grid-cols-3 gap-6 mt-6">
-            <select
-              name="code_country"
-              value={selectedCountryCode}
-              onChange={(e) => setSelectedCountryCode(e.target.value)}
-              className="contact-input select-dark"
-            >
-              <option value="">Código</option>
-              {countries.map(country => (
-                <option key={country.iso2} value={country.code}>
-                  {country.name} ({country.code})
-                </option>
-              ))}
-            </select>
+            <div ref={selectRef} className="relative md:col-span-1">
+              <div
+                onClick={() => setOpen(!open)}
+                className="custom-select"
+              >
+                {selectedCountry ? (
+                  <span className="selected-country">
+                    <span className="country-code">
+                      {selectedCountry.code}
+                    </span>
+                    <span className="country-name">
+                      {selectedCountry.name}
+                    </span>
+                  </span>
+                ) : "Código"}
+                <span className="ml-2">⌄</span>
+              </div>
+              <input
+                type="hidden"
+                name="code_country"
+                value={selectedCountry?.code || ""}
+              />
+            
+              {open && (
+                <div className="select-dropdown">
+                  {countries.map(country => (
+                    <div
+                      key={country.iso2}
+                      onClick={() => {
+                        setSelectedCountry(country);
+                        setOpen(false);
+                      }}
+                      className="select-option"
+                    >
+                      {country.name} ({country.code})
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
 
             <Input name="phone_number" placeholder="Celular *" error={errors.phone_number} className="md:col-span-2"/>
           </div>
