@@ -16,36 +16,6 @@ section {
     scroll-margin-top: 120px;
 }
 
-/* nav {
-    position: relative;
-    font-family: 'Lilita One', system-ui;
-    position: fixed;
-    z-index: 2;
-    width: 100%;
-    top: 30px;
-    padding: 10px 0 10px 20px;
-    transform: translateY(0);
-    transition: all .3s ease-in-out;
-    background-color: transparent;
-} */
-
-/* styles scroll */
-/* .nav-scrolled {
-    top: 0;
-    border-radius: 30px;
-    background-color: var(--second-color);
-    transform: translateY(0);
-} */
-
-/* .selected {
-    border: 2px solid var(--color-btn-icon);
-}
-
-
-.unselected {
-    border: none;
-} */
-
 ul {
     list-style: none;
     padding: 0;
@@ -82,21 +52,6 @@ nav .container_ul_nav > li{
     display: block;
 }
 
-/* .subMenu {
-    display: none;
-    background-color: var(--second-color);
-    padding: 10px 20px;
-    margin-top: 1px;
-    margin-left: -30px;
-} */
-
-/* .menu:hover .subMenu,
-.menu .subMenu:hover {
-    display: block;
-    position: absolute;
-    z-index: -1;
-} */
-
 .menu .arrow_icon {
     transition: .4s ease-in-out;
     color: var(--color-btn-icon);
@@ -121,25 +76,11 @@ nav .container_ul_nav > li{
 ##############################
 */
 
-/* @media screen and (max-width: 1200px) {
-    .nav-scrolled {
-        left: 0;
-        border-radius: 0;
-        justify-content: center;
-        transition: 0s;
-    }
+@media screen and (max-width: 1200px) {
     nav {
-        width: 100%;
-        padding-left: 100px;
+        left: 40% !important;
     }
-    nav .container_ul_nav {
-        width: 100%;
-        justify-content: start;
-    }
-    nav .container_ul_nav > li {
-        margin-right: 20px;
-    }
-} */
+}
 
 /* @media screen and (max-width: 800px) {
     .toggle {
