@@ -28,7 +28,7 @@
     font-family: 'Lilita One', monospace;
 }
 
-#me > p {
+#me p {
     font-family: 'Inconsolata Variable', monospace;
     font-size: 20px;
     color: var(--color-gray);
@@ -38,10 +38,6 @@
 
 .img_profile {
     display: none;
-}
-
-.container_icon {
-    display: none !important;
 }
 
 @keyframes fadeUp {
@@ -59,6 +55,14 @@
   animation: fadeUp 0.8s ease-out both;
 }
 
+.container_icon { 
+    display: none !important;
+}
+
+.img_profile_photo {
+    display: none;
+}
+
 /* ########################### 
 ####### MEDIA QUERY  #########
 ##############################
@@ -69,8 +73,8 @@
         width: 100% !important;
     }
 
-    #me p {
-        width: 100%;
+    #me {
+        padding-bottom: 0;
     }
 
     .img_profile {
@@ -81,20 +85,20 @@
         justify-content: center;
     }
 
-    #me {
-        width: 100%;
-        text-align: center;
-    }
-
-    .name_fernando_profile {
-        justify-content: center;
-    }
-
     .container_icon {
-        display: flex !important;
-        justify-content: flex-start !important;
-        margin-left: 150px;
-        margin-bottom: -20px;
+    display: flex !important;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 24px;
+    }
+    
+    .icon {
+        font-size: 32px;
+        transition: transform 0.3s ease;
+    }
+    
+    .icon:hover {
+        transform: scale(1.15);
     }
 
     .icon {
@@ -155,10 +159,6 @@
         width: 50px;
     }
 
-    .container_icon {
-        margin-left: 100px;
-    }
-
     .btn-cv {
         font-size: 18px;
         max-width: 400px;
@@ -173,9 +173,7 @@
     .icon {
         width: 30px;
     }
-    .container_icon {
-        margin-left: 120px;
-    }
+
     .descritpion {
         font-size: 20px !important;
         width: 100% !important;

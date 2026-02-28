@@ -33,20 +33,35 @@ const Me = () => {
   return (
     <div className="container_me w-full max-w-[800px] px-6 mx-auto mt-24">
     <section id="me" className="animate-fadeUp relative max-w-4xl mx-auto px-6 pt-32 pb-24">
-        <Social />
+        {/* <Social /> */}
 
-        <div className="name_fernando_profile flex items-center gap-6">
-          <h1 className="text-5xl font-semibold tracking-tight text-white">
+        <div className="flex flex-col">
+
+          {/* FOTO */}
+          <img
+            src="/perfil-photo.png"
+            alt="Fernando Pérez"
+            className="img_profile_photo w-32 h-32 rounded-full object-cover object-top mb-6 shadow-lg"
+          />
+
+          {/* NOMBRE */}
+          <h1 className="text-4xl sm:text-5xl font-semibold tracking-tight text-white">
             Fernando Pérez
           </h1>
+
+          {/* REDES */}
+          <Social />
+
         </div>
 
-        <p className="text-neutral-300 mt-6 leading-relaxed max-w-2xl">
-          Frontend Developer enfocado en crear interfaces modernas,
-          escalables y optimizadas para rendimiento y experiencia de usuario.
-          Uso IA como herramienta estratégica para mejorar procesos y construir
-          productos digitales con impacto real.
-        </p>
+        <div className="w-full flex flex-wrap">
+          <p className="flex text-neutral-300 mt-6 leading-relaxed max-w-2xl">
+            Frontend Developer enfocado en crear interfaces modernas,
+            escalables y optimizadas para rendimiento y experiencia de usuario.
+            Uso IA como herramienta estratégica para mejorar procesos y construir
+            productos digitales con impacto real.
+          </p>
+        </div>
       </section>
 
       <p className="text-neutral-500 text-sm mt-10">
