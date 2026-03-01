@@ -13,26 +13,32 @@
   position: relative;
 }
 
-/* Glow effect */
-.social-glow::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 50%;
-  background: radial-gradient(circle at center, rgba(255,166,67,0.4), transparent 70%);
-  opacity: 0;
-  transition: opacity 0.35s ease;
-  z-index: -1;
-}
-
-/* Hover */
-.social-glow:hover {
-  color: #fff;
-  border-color: #FFA643;
+/* ------------------ */
+/* LINKEDIN */
+/* ------------------ */
+.social-glow.linkedin:hover {
+  color: #0A66C2;
+  border-color: #0A66C2;
+  box-shadow: 0 0 18px rgba(10,102,194,0.45);
   transform: translateY(-4px);
-  box-shadow: 0 0 15px rgba(255,166,67,0.4);
 }
 
-.social-glow:hover::before {
-  opacity: 1;
+/* ------------------ */
+/* GITHUB */
+/* ------------------ */
+.social-glow.github:hover {
+  color: #ffffff;
+  border-color: #ffffff;
+  box-shadow: 0 0 18px rgba(255,255,255,0.4);
+  transform: translateY(-4px);
+}
+
+/* ------------------ */
+/* WHATSAPP */
+/* ------------------ */
+.social-glow.whatsapp:hover {
+  color: #25D366;
+  border-color: #25D366;
+  box-shadow: 0 0 18px rgba(37,211,102,0.45);
+  transform: translateY(-4px);
 }

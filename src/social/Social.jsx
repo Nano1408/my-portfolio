@@ -14,7 +14,7 @@ const Social = () => {
         href="https://www.linkedin.com/in/fernando-perez-florez/"
         target="_blank"
         rel="noopener noreferrer"
-        className="social-glow"
+        className="social-glow linkedin"
       >
         <FaLinkedinIn />
       </a>
@@ -23,7 +23,7 @@ const Social = () => {
         href="https://github.com/Nano1408"
         target="_blank"
         rel="noopener noreferrer"
-        className="social-glow"
+        className="social-glow github"
       >
         <FaGithub />
       </a>
@@ -32,7 +32,7 @@ const Social = () => {
         href={whatsappURL}
         target="_blank"
         rel="noopener noreferrer"
-        className="social-glow"
+        className="social-glow whatsapp"
       >
         <FaWhatsapp />
       </a>
