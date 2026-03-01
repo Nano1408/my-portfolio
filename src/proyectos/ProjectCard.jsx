@@ -150,7 +150,7 @@ const ProjectCard = ({
           </p>
 
           <div className="mt-8 flex items-center gap-4">
-            <div className="flex items-center gap-4 text-2xl">
+            <div className="flex items-center gap-4 text-2xl flex-wrap">
             {tech.map((item, i) => (
               <span key={i} className="transition-transform duration-300 hover:scale-110">
                 {techIcons[item]}

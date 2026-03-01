@@ -15,7 +15,7 @@ const floatAnimation = {
 
 const Teams = () => {
   return (
-    <section className="relative py-28 px-6 bg-gradient-to-b from-black via-[#0d0d14] to-black overflow-hidden">
+    <section className="relative py-20 px-6 bg-gradient-to-b from-black via-[#0d0d14] to-black overflow-hidden">
       <h2 className="text-[44px] font-semibold text-center text-white mb-20">
         Mi equipo de desarrollo
       </h2>

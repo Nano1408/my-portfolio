@@ -35,7 +35,7 @@ const Me = () => {
     <section id="me" className="animate-fadeUp relative max-w-4xl mx-auto px-6 pt-32 pb-24">
         {/* <Social /> */}
 
-        <div className="flex flex-col">
+        <div className="name_photo flex flex-col">
 
           {/* FOTO */}
           <img
@@ -55,7 +55,7 @@ const Me = () => {
         </div>
 
         <div className="w-full flex flex-wrap">
-          <p className="flex text-neutral-300 mt-6 leading-relaxed max-w-2xl">
+          <p className="text-neutral-400 mt-6 leading-relaxed mx-auto text-sm sm:text-base">
             Frontend Developer enfocado en crear interfaces modernas,
             escalables y optimizadas para rendimiento y experiencia de usuario.
             Uso IA como herramienta estratégica para mejorar procesos y construir
@@ -68,7 +68,7 @@ const Me = () => {
         ¿Te interesa trabajar conmigo?
       </p>
 
-      <section className="container_cv_mail w-full flex flex-col sm:flex-row gap-4 mt-6">
+      <section className="btn_me w-full flex flex-col sm:flex-row gap-4 mt-8">
 
         {/* CV */}
         <a

@@ -1,20 +1,18 @@
 import { FaCode } from "react-icons/fa";
 import MoreProjectCard from "../moreProjects/MoreProjectCard";
 import { moreProjects } from "../data/moreProjects";
-// import BuyCar from '@moreProjects/BuyCar'
-// import HermanasDominicana from '@moreProjects/HermanasDominicana';
-// import PosterMovie from '@moreProjects/PosterMovie';
-// import AdoptionPuppies from '@moreProjects/AdoptionPuppies';
+import "@styles/moreProject.css";
 
 const MoreProjects = () => {
   return (
-    <div className="mt-20">
+    <div className="card_container mt-20">
         <div className='flex items-center'>
             <FaCode className='text-[#ffffff] w-[49px] h-[49px] mr-4'/>
             <h2 className='py-6 text-white text-4xl font-bold'>Más proyectos</h2>
         </div>
 
         <section className="
+                card_more_projects
                 mt-16
                 grid
                 grid-cols-1
@@ -22,7 +20,7 @@ const MoreProjects = () => {
                 lg:grid-cols-2
                 2xl:grid-cols-2
                 gap-8
-                max-w-[1300px]
+                max-w-[650px]
                 mx-auto
                 justify-items-center"
         >
@@ -33,13 +31,6 @@ const MoreProjects = () => {
           />
         ))}
       </section>
-
-        {/* <section>
-            <BuyCar />
-            <HermanasDominicana />
-            <PosterMovie />
-            <AdoptionPuppies />
-        </section> */}
     </div>
   )
 }

@@ -63,6 +63,7 @@
     display: none;
 }
 
+
 /* ########################### 
 ####### MEDIA QUERY  #########
 ##############################
@@ -73,16 +74,24 @@
         width: 100% !important;
     }
 
+    .name_photo {
+        align-items: center;
+    }
+
+    .img_profile_photo {
+        display: block;
+    }
+
+    .btn_me {
+        justify-content: center;
+    }
+
     #me {
         padding-bottom: 0;
     }
 
     .img_profile {
-        display: block;
-    }
-
-    .container_cv_mail {
-        justify-content: center;
+        display: flex !important;
     }
 
     .container_icon {
@@ -123,16 +132,6 @@
 
     .descritpion {
         padding: 0;
-    }
-
-    .container_cv_mail {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .container_cv_mail button:nth-child(1){
-        margin: 0;
-        margin-bottom: 15px !important;
     }
 
     .btn-cv {
