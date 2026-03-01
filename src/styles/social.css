@@ -1,0 +1,38 @@
+.social-glow {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: #111;
+  border: 1px solid #222;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #cfcfcf;
+  font-size: 18px;
+  transition: all 0.35s ease;
+  position: relative;
+}
+
+/* Glow effect */
+.social-glow::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, rgba(255,166,67,0.4), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  z-index: -1;
+}
+
+/* Hover */
+.social-glow:hover {
+  color: #fff;
+  border-color: #FFA643;
+  transform: translateY(-4px);
+  box-shadow: 0 0 15px rgba(255,166,67,0.4);
+}
+
+.social-glow:hover::before {
+  opacity: 1;
+}

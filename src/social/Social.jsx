@@ -1,47 +1,43 @@
-import { TiSocialLinkedinCircular } from "react-icons/ti";
-import { TiSocialGithubCircular } from "react-icons/ti";
-import { IoLogoInstagram } from "react-icons/io";
-import { TiSocialFacebookCircular } from "react-icons/ti";
+import { FaLinkedinIn, FaGithub, FaWhatsapp } from "react-icons/fa";
+import "@styles/social.css";
+
 
 const Social = () => {
+    const phoneNumber = "573245735992";
+    const message = "Hola Fernando, como estas? soy...";
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappURL = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodedMessage}`;
   return (
-    <section className='container_icon flex mt-[54px] w-full justify-center'>
-                {/* icon linkedin social */}
-                <a 
-                href="https://www.linkedin.com/in/fernando-perez-florez/" 
-                target='blank_'
-                className='socialIcon mr-3'
-                >
-                    <TiSocialLinkedinCircular className='icon text-5xl text-white'/>
-                </a>
+    <div className="flex gap-4 mt-6 justify-center">
 
-                {/* icon github social */}
-                <a 
-                href="https://github.com/Nano1408" 
-                target='blank_' 
-                className='socialIcon mr-3'
-                >
-                    <TiSocialGithubCircular className='icon text-5xl text-white'/>
-                </a>
+      <a 
+        href="https://www.linkedin.com/in/fernando-perez-florez/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="social-glow"
+      >
+        <FaLinkedinIn />
+      </a>
 
-                {/* icon instagram social */}
-                <a 
-                href="https://www.instagram.com/fernadev14/" 
-                target='blank_' 
-                className='socialIcon mr-3'
-                >
-                    <IoLogoInstagram className='icon text-5xl text-white'/>
-                </a>
+      <a 
+        href="https://github.com/Nano1408"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="social-glow"
+      >
+        <FaGithub />
+      </a>
 
-                {/* icon facebook social */}
-                <a 
-                href="https://www.facebook.com/fernando.pf.3956" 
-                target='blank' 
-                className='socialIcon mr-3'
-                >
-                    <TiSocialFacebookCircular className='icon text-5xl text-white'/>
-                </a>
-            </section>
+      <a 
+        href={whatsappURL}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="social-glow"
+      >
+        <FaWhatsapp />
+      </a>
+
+    </div>
   )
 }
 
