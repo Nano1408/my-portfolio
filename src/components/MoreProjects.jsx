@@ -12,7 +12,6 @@ const MoreProjects = () => {
         </div>
 
         <section className="
-                card_more_projects
                 mt-16
                 grid
                 grid-cols-1
