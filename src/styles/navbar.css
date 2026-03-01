@@ -76,9 +76,9 @@ nav .container_ul_nav > li{
 ##############################
 */
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1280px) {
     nav {
-        left: 40% !important;
+        left:35% !important;
     }
 }
 

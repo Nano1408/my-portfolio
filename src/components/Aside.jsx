@@ -11,7 +11,7 @@ const Aside = () => {
     const whatsappURL = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodedMessage}`;
 
   return (
-    <aside className='animate-float'>
+    <aside className='hidden xl:block animate-float'>
         <div
           id='aside'
           className='w-[320px] flex flex-col items-center

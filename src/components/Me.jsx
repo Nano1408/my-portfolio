@@ -50,7 +50,9 @@ const Me = () => {
           </h1>
 
           {/* REDES */}
-          <Social />
+          <div className="xl:hidden">
+            <Social />
+          </div>
 
         </div>
 

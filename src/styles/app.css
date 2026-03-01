@@ -32,7 +32,7 @@ header, main, footer {
 ##############################
 */
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1280px) {
 
   .app-container {
     display: block;
