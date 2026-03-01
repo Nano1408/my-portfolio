@@ -42,6 +42,10 @@
     #card_container {
         max-width: 500px;
     }
+
+    .card_experiencia {
+        margin: 2rem;
+    }
 }
 
 
