@@ -12,12 +12,12 @@ const teamData = [
   {
     role: "Desarrollador",
     name: "Fernando P.",
-    image: "/intern.png",
+    image: "/intern.jpeg",
   },
   {
     role: "Team Leader",
     name: "Fernando P.",
-    image: "/teams_lead.png",
+    image: "/teams_lead.jpeg",
   },
 ];
 
