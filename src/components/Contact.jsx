@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from "react";
+import { isoToFlag } from "../utils/flags";
 import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
 import Swal from "sweetalert2";
@@ -27,7 +28,8 @@ export default function Contact() {
           .map(c => ({
             name: c.name.common,
             code: c.idd.root + (c.idd.suffixes?.[0] || ""),
-            iso2: c.cca2
+            iso2: c.cca2,
+            flag: isoToFlag(c.cca2)
           }))
           .sort((a, b) => a.name.localeCompare(b.name));
 
@@ -158,12 +160,12 @@ export default function Contact() {
               >
                 {selectedCountry ? (
                   <span className="selected-country">
-                    <span className="country-code">
-                      {selectedCountry.code}
-                    </span>
-                    <span className="country-name">
-                      {selectedCountry.name}
-                    </span>
+                    <span>{selectedCountry.flag}</span>
+                    <span className="country-code">{selectedCountry.code}</span>
+                    <img 
+                          src={`https://flagcdn.com/w20/${selectedCountry.iso2.toLowerCase()}.png`} 
+                          alt="" 
+                        />
                   </span>
                 ) : "Código"}
                 <span className="ml-2">⌄</span>
@@ -185,7 +187,13 @@ export default function Contact() {
                       }}
                       className="select-option"
                     >
-                      {country.name} ({country.code})
+                      <span className="flex gap-2 items-center">
+                        <img 
+                          src={`https://flagcdn.com/w20/${country.iso2.toLowerCase()}.png`} 
+                          alt="" 
+                        />
+                        <span>{country.code}</span>
+                      </span>
                     </div>
                   ))}
                 </div>
