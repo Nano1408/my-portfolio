@@ -1,5 +1,5 @@
 import { FaCode } from "react-icons/fa";
-import MoreProjectCard from "../moreProjects/MoreProjectCard";
+import MoreProjectCard from "../components/components/MoreProjectCard";
 import { moreProjects } from "../data/moreProjects";
 import "@styles/moreProject.css";
 

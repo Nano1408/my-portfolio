@@ -1,7 +1,7 @@
 import "@styles/me.css";
 import "@fontsource/lilita-one";
 import "@fontsource-variable/inconsolata";
-import Social from "../social/Social";
+import Social from "../components/components/Social";
 import { FaRegCopy } from "react-icons/fa";
 import Swal from 'sweetalert2'
 

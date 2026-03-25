@@ -1,7 +1,7 @@
 import '@fontsource/lilita-one';
 import '@fontsource-variable/inconsolata';
 import '@styles/experiencia.css'
-import ProjectCard from '../proyectos/ProjectCard';
+import ProjectCard from '../components/components/ProjectCard';
 import { projects } from '../data/projects';
 
 const Experienca = () => {

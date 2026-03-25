@@ -1,7 +1,7 @@
 // Supports weights 200-900
 import '@fontsource-variable/inconsolata';
 import '@styles/aside.css'
-import Social from '../social/Social';
+import Social from '../components/components/Social';
 
 const Aside = () => {
     const phoneNumber = "573245735992";

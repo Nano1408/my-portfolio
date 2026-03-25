@@ -1,5 +1,5 @@
 import '@styles/review.css'
-import Talk from '../review/Talk'
+import Talk from '../components/components/Talk';
 
 const Review = () => {
   return (
