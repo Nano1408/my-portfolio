@@ -15,7 +15,7 @@ export default function Contact() {
   const [phone, setPhone] = useState("");
   const [phoneError, setPhoneError] = useState(false);
 
-  console.log("ISO:", selectedCountry?.iso2);
+  // console.log("ISO:", selectedCountry?.iso2);
 
   
   useEffect(() => {
@@ -167,8 +167,8 @@ export default function Contact() {
                 setPhone(raw);
                 setPhoneError(false);
 
-                console.log("RAW:", raw);
-                console.log("FORMATTED:", config?.format(raw));
+                // console.log("RAW:", raw);
+                // console.log("FORMATTED:", config?.format(raw));
               }}
             />
 
