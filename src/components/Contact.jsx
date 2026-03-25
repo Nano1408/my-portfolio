@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import { getAllPhoneCodes } from "../services/phoneCodes";
+import { phoneConfig } from "../utils/phoneConfig";
 import CountrySelect from "../components/components/CountrySelect";
 import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
@@ -12,6 +12,15 @@ export default function Contact() {
   const [send, setSend] = useState("Enviar mensaje");
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState({});
+  const [phone, setPhone] = useState("");
+  const [phoneError, setPhoneError] = useState(false);
+
+  console.log("ISO:", selectedCountry?.iso2);
+
+  
+  useEffect(() => {
+    setPhone("");
+  }, [selectedCountry]);
  
 
   // -----------------------------
@@ -20,12 +29,22 @@ export default function Contact() {
   const validate = () => {
     const formData = new FormData(form.current);
     const newErrors = {};
+    const cleanPhone = phone.replace(/\D/g, "");
+    const config = selectedCountry 
+    ? phoneConfig[selectedCountry.iso2] 
+    : null;
 
     if (!formData.get("user_name")) newErrors.user_name = true;
     if (!formData.get("user_last_name")) newErrors.user_last_name = true;
     if (!formData.get("company")) newErrors.company = true;
     if (!formData.get("user_email")) newErrors.user_email = true;
     if (!formData.get("phone_number")) newErrors.phone_number = true;
+    if (!cleanPhone) {
+      newErrors.phone_number = true;
+    } else if (config && cleanPhone.length !== config.length) {
+      newErrors.phone_number = true;
+      setPhoneError(true);
+    }
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -120,11 +139,37 @@ export default function Contact() {
               onChange={setSelectedCountry}
             />
 
-            <Input 
-              name="phone_number" 
-              placeholder="Celular *" 
-              error={errors.phone_number} 
-              className="md:col-span-2"
+            <input
+              type="text"
+              name="phone_number"
+              value={phone}
+              placeholder={
+                selectedCountry
+                  ? `${selectedCountry.code} ${phoneConfig[selectedCountry.iso2]?.placeholder || ""}`
+                  : "Celular *"
+              }
+              className={`contact-input md:col-span-2 ${phoneError ? "input-error" : ""}`}
+              onChange={(e) => {
+                let raw = e.target.value.replace(/\D/g, "");
+                            
+                if (!selectedCountry) {
+                  setPhone(raw); // sin formato aún
+                  return;
+                }
+              
+                const config = phoneConfig[selectedCountry.iso2?.toUpperCase()];
+              
+                if (config) {
+                  raw = raw.slice(0, config.length);
+                  raw = config.format(raw);
+                }
+              
+                setPhone(raw);
+                setPhoneError(false);
+
+                console.log("RAW:", raw);
+                console.log("FORMATTED:", config?.format(raw));
+              }}
             />
 
           </div>
