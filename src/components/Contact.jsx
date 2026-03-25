@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import { isoToFlag } from "../utils/flags";
+import { getAllPhoneCodes } from "../services/phoneCodes";
 import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
 import Swal from "sweetalert2";
@@ -10,6 +10,7 @@ export default function Contact() {
 
   const [countries, setCountries] = useState([]);
   const [selectedCountry, setSelectedCountry] = useState(null);
+  const [search, setSearch] = useState("");
   const [send, setSend] = useState("Enviar mensaje");
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState({});
@@ -20,27 +21,25 @@ export default function Contact() {
   // Cargar códigos de país
   // -----------------------------
   useEffect(() => {
-    fetch("https://restcountries.com/v3.1/all?fields=name,idd,cca2")
+    const data = getAllPhoneCodes();
+    setCountries(data);
+
+    // Detectar país por IP
+    fetch("https://ipapi.co/json/")
       .then(res => res.json())
-      .then(data => {
-        const formatted = data
-          .filter(c => c.idd?.root)
-          .map(c => ({
-            name: c.name.common,
-            code: c.idd.root + (c.idd.suffixes?.[0] || ""),
-            iso2: c.cca2,
-            flag: isoToFlag(c.cca2)
-          }))
-          .sort((a, b) => a.name.localeCompare(b.name));
-
-        setCountries(formatted);
-
-        const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-        if (timezone.includes("Bogota")) {
-          const colombia = formatted.find(c => c.code === "+57");
-          if (colombia) setSelectedCountry(colombia);
+      .then(loc => {
+        const countryCode = loc.country_calling_code; // +57
+        const match = data.find(c => c.code === countryCode);
+        if (match) {
+          setSelectedCountry(match);
         }
+      })
+      .catch(() => {
+        // fallback: Colombia
+        const colombia = data.find(c => c.code === "+57");
+        if (colombia) setSelectedCountry(colombia);
       });
+
   }, []);
 
   useEffect(() => {
@@ -119,6 +118,14 @@ export default function Contact() {
     });
   };
 
+  // -----------------------------
+  // Filtrar Paises
+  // -----------------------------
+  const filteredCountries = countries.filter(c =>
+    c.name.toLowerCase().includes(search.toLowerCase()) ||
+    c.code.includes(search)
+  );
+
   return (
     <section className="py-28 px-6">
       <div className="max-w-5xl mx-auto">
@@ -178,12 +185,23 @@ export default function Contact() {
             
               {open && (
                 <div className="select-dropdown">
-                  {countries.map(country => (
+
+                {/* 🔍 BUSCADOR */}
+                <input
+                  type="text"
+                  placeholder="Buscar país..."
+                  value={search}
+                  onChange={(e) => setSearch(e.target.value)}
+                  className="select-search"
+                />
+
+                {filteredCountries.map(country => (
                     <div
                       key={country.iso2}
                       onClick={() => {
                         setSelectedCountry(country);
                         setOpen(false);
+                        setSearch("");
                       }}
                       className="select-option"
                     >
