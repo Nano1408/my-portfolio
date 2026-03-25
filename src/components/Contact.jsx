@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { getAllPhoneCodes } from "../services/phoneCodes";
+import CountrySelect from "../components/components/CountrySelect";
 import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
 import Swal from "sweetalert2";
@@ -7,61 +8,11 @@ import "@styles/contact.css";
 
 export default function Contact() {
   const form = useRef();
-
-  const [countries, setCountries] = useState([]);
   const [selectedCountry, setSelectedCountry] = useState(null);
-  const [search, setSearch] = useState("");
-  const [highlightIndex, setHighlightIndex] = useState(0);
   const [send, setSend] = useState("Enviar mensaje");
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState({});
-  const [open, setOpen] = useState(false);
-  const selectRef = useRef(null);
-  const optionRefs = useRef([]);
-
-  // -----------------------------
-  // Cargar códigos de país
-  // -----------------------------
-  useEffect(() => {
-    const data = getAllPhoneCodes();
-    setCountries(data);
-
-    // Detectar país por IP
-    fetch("https://ipapi.co/json/")
-      .then(res => res.json())
-      .then(loc => {
-        const countryCode = loc.country_calling_code; // +57
-        const match = data.find(c => c.code === countryCode);
-        if (match) {
-          setSelectedCountry(match);
-        }
-      })
-      .catch(() => {
-        // fallback: Colombia
-        const colombia = data.find(c => c.code === "+57");
-        if (colombia) setSelectedCountry(colombia);
-      });
-
-  }, []);
-
-  useEffect(() => {
-      const handleClickOutside = (e) => {
-        if (selectRef.current && !selectRef.current.contains(e.target)) {
-          setOpen(false);
-        }
-      };
-  
-      document.addEventListener("mousedown", handleClickOutside);
-      return () => document.removeEventListener("mousedown", handleClickOutside);
-    }, []);
-
-    useEffect(() => {
-      if (optionRefs.current[highlightIndex]) {
-        optionRefs.current[highlightIndex].scrollIntoView({
-          block: "nearest"
-        });
-      }
-    }, [highlightIndex]);
+ 
 
   // -----------------------------
   // Validación simple
@@ -128,47 +79,7 @@ export default function Contact() {
     });
   };
 
-  // -----------------------------
-  // Filtrar Paises
-  // -----------------------------
-  const filteredCountries = countries.filter(c =>
-    c.name.toLowerCase().includes(search.toLowerCase()) ||
-    c.code.includes(search)
-  );
-
-  // Reset index cuando cambia búsqueda
-  useEffect(() => {
-    setHighlightIndex(0);
-  }, [search]);
-
-  const handleKeyDown = (e) => {
-    if (!open) return;
-
-    if (e.key === "ArrowDown") {
-      e.preventDefault();
-      setHighlightIndex(prev =>
-        prev < filteredCountries.length - 1 ? prev + 1 : prev
-      );
-    }
-
-    if (e.key === "ArrowUp") {
-      e.preventDefault();
-      setHighlightIndex(prev =>
-        prev > 0 ? prev - 1 : prev
-      );
-    }
-
-    if (e.key === "Enter") {
-      e.preventDefault();
-      const selected = filteredCountries[highlightIndex];
-      if (selected) {
-        setSelectedCountry(selected);
-        setOpen(false);
-        setSearch("");
-      }
-    }
-  };
-
+  
   return (
     <section className="py-28 px-6">
       <div className="max-w-5xl mx-auto">
@@ -203,70 +114,19 @@ export default function Contact() {
 
             {/* SELECT PERSONALIZADO */}
           <div className="grid md:grid-cols-3 gap-6 mt-6">
-            <div ref={selectRef} className="relative md:col-span-1">
-              <div
-                onClick={() => setOpen(!open)}
-                className="custom-select"
-              >
-                {selectedCountry ? (
-                  <span className="selected-country">
-                    <span>{selectedCountry.flag}</span>
-                    <span className="country-code">{selectedCountry.code}</span>
-                    <img 
-                          src={`https://flagcdn.com/w20/${selectedCountry.iso2.toLowerCase()}.png`} 
-                          alt="" 
-                        />
-                  </span>
-                ) : "Código"}
-                <span className="ml-2">⌄</span>
-              </div>
-              <input
-                type="hidden"
-                name="code_country"
-                value={selectedCountry?.code || ""}
-              />
-            
-              {open && (
-                <div className="select-dropdown">
+  
+            <CountrySelect
+              value={selectedCountry}
+              onChange={setSelectedCountry}
+            />
 
-                {/* 🔍 BUSCADOR */}
-                <input
-                  type="text"
-                  placeholder="Buscar país..."
-                  value={search}
-                  onChange={(e) => setSearch(e.target.value)}
-                  onKeyDown={handleKeyDown}
-                  className="select-search"
-                  autoFocus
-                />
+            <Input 
+              name="phone_number" 
+              placeholder="Celular *" 
+              error={errors.phone_number} 
+              className="md:col-span-2"
+            />
 
-                {filteredCountries.map((country, index) => (
-                    <div
-                      key={country.iso2}
-                      ref={el => optionRefs.current[index] = el}
-                      onClick={() => {
-                        setSelectedCountry(country);
-                        setOpen(false);
-                        setSearch("");
-                      }}
-                      className={`select-option ${
-                        index === highlightIndex ? "active-option" : ""
-                      }`}
-                    >
-                      <span className="flex gap-2 items-center">
-                        <img 
-                          src={`https://flagcdn.com/w20/${country.iso2.toLowerCase()}.png`} 
-                          alt="" 
-                        />
-                        <span>{country.code}</span>
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              )}
-            </div>
-
-            <Input name="phone_number" placeholder="Celular *" error={errors.phone_number} className="md:col-span-2"/>
           </div>
 
           <textarea
