@@ -11,11 +11,13 @@ export default function Contact() {
   const [countries, setCountries] = useState([]);
   const [selectedCountry, setSelectedCountry] = useState(null);
   const [search, setSearch] = useState("");
+  const [highlightIndex, setHighlightIndex] = useState(0);
   const [send, setSend] = useState("Enviar mensaje");
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState({});
   const [open, setOpen] = useState(false);
   const selectRef = useRef(null);
+  const optionRefs = useRef([]);
 
   // -----------------------------
   // Cargar códigos de país
@@ -52,6 +54,14 @@ export default function Contact() {
       document.addEventListener("mousedown", handleClickOutside);
       return () => document.removeEventListener("mousedown", handleClickOutside);
     }, []);
+
+    useEffect(() => {
+      if (optionRefs.current[highlightIndex]) {
+        optionRefs.current[highlightIndex].scrollIntoView({
+          block: "nearest"
+        });
+      }
+    }, [highlightIndex]);
 
   // -----------------------------
   // Validación simple
@@ -126,6 +136,39 @@ export default function Contact() {
     c.code.includes(search)
   );
 
+  // Reset index cuando cambia búsqueda
+  useEffect(() => {
+    setHighlightIndex(0);
+  }, [search]);
+
+  const handleKeyDown = (e) => {
+    if (!open) return;
+
+    if (e.key === "ArrowDown") {
+      e.preventDefault();
+      setHighlightIndex(prev =>
+        prev < filteredCountries.length - 1 ? prev + 1 : prev
+      );
+    }
+
+    if (e.key === "ArrowUp") {
+      e.preventDefault();
+      setHighlightIndex(prev =>
+        prev > 0 ? prev - 1 : prev
+      );
+    }
+
+    if (e.key === "Enter") {
+      e.preventDefault();
+      const selected = filteredCountries[highlightIndex];
+      if (selected) {
+        setSelectedCountry(selected);
+        setOpen(false);
+        setSearch("");
+      }
+    }
+  };
+
   return (
     <section className="py-28 px-6">
       <div className="max-w-5xl mx-auto">
@@ -192,18 +235,23 @@ export default function Contact() {
                   placeholder="Buscar país..."
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
+                  onKeyDown={handleKeyDown}
                   className="select-search"
+                  autoFocus
                 />
 
-                {filteredCountries.map(country => (
+                {filteredCountries.map((country, index) => (
                     <div
                       key={country.iso2}
+                      ref={el => optionRefs.current[index] = el}
                       onClick={() => {
                         setSelectedCountry(country);
                         setOpen(false);
                         setSearch("");
                       }}
-                      className="select-option"
+                      className={`select-option ${
+                        index === highlightIndex ? "active-option" : ""
+                      }`}
                     >
                       <span className="flex gap-2 items-center">
                         <img 

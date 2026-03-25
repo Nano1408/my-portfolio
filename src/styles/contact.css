@@ -36,6 +36,10 @@
   transition: background 0.2s;
 }
 
+.active-option {
+  background: rgba(249, 115, 22, 0.3); /* naranja suave */
+}
+
 .select-option:hover {
   background: rgba(249,115,22,0.2);
 }
