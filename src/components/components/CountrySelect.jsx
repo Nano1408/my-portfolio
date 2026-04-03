@@ -101,10 +101,11 @@ export default function CountrySelect({ value, onChange }) {
           <span className="flex items-center gap-2">
             <span>{value.flag}</span>
             <span>{value.code}</span>
-            <img 
+            <span>{value.flagIcon}</span>
+            {/*<img 
               src={`https://flagcdn.com/w20/${value.iso2.toLowerCase()}.png`} 
               alt="" 
-            />
+            />*/}
           </span>
         ) : "Código"}
         <span className="ml-2">⌄</span>

@@ -15,7 +15,8 @@ export const getAllPhoneCodes = () => {
       name: c.name,
       code: `+${c.dialCode}`,
       iso2: c.iso2,
-      flag: isoToFlag(c.iso2)
+      flag: c.iso2,
+      flagIcon: isoToFlag(c.iso2),
     }))
     .sort((a, b) => a.name.localeCompare(b.name));
 };
